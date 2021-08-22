@@ -1,0 +1,258 @@
+.offers_section {
+  @include gradient($yellow-color, $orange-color);
+
+  position: relative;
+  padding-top: calc(2rem + 85px);
+  padding-bottom: 12rem;
+
+  color: $white-color;
+
+  @media only screen and (max-width: 980px) {
+    padding-bottom: 9rem;
+  }
+
+  @media only screen and (max-width: 580px) {
+    padding-bottom: 7rem;
+  }
+
+  .offers_head {
+    align-content: center;
+    justify-content: center;
+
+    padding: 2rem 0;
+
+    &__header {
+      width: 50%;
+      text-align: right;
+
+      @media only screen and (max-width: 560px) {
+        width: 100%;
+        text-align: center;
+      }
+
+      h1 {
+        @include border-radius(5px);
+
+        position: relative;
+        display: inline-block;
+        background: $white-color;
+
+        text-transform: uppercase;
+        color: $orange-color;
+
+        padding: 5px 50px;
+
+        @media only screen and (max-width: 560px) {
+          margin-bottom: 0;
+          display: block;
+        }
+
+        &::before {
+          @include border-radius(5px);
+
+          position: absolute;
+          content: '';
+
+          top: -10px;
+          left: -10px;
+
+          width: calc(100% + 20px);
+          height: calc(100% + 20px);
+          border: 2px solid $white-color;
+        }
+      }
+    }
+
+    &__description {
+      width: 50%;
+      padding-left: 2rem;
+
+      @media only screen and (max-width: 560px) {
+        width: 100%;
+        padding-left: 0;
+      }
+
+      ul {
+        @extend %no-margin;
+      }
+    }
+  }
+
+  .offers {
+    position: relative;
+    padding: 1rem 0;
+
+    .offers_content {
+      &__block {
+        @include border-radius(5px);
+
+        position: relative;
+
+        width: 92%;
+
+        min-height: 380px;
+        max-height: 380px;
+
+        margin-bottom: 30px;
+        margin-left: 8px;
+        margin-top: 8px;
+
+        &:not(img) {
+          margin-top: 16px;
+        }
+
+        &:last-child {
+          @media only screen and (max-width: 860px) {
+            margin-top: 2rem;
+          }
+        }
+
+        &:nth-child(2) {
+          @media only screen and (max-width: 560px) {
+            margin-top: 2rem;
+          }
+        }
+
+        &::before {
+          @include border-radius(5px);
+
+          position: absolute;
+          content: '';
+
+          top: -8px;
+          left: -8px;
+
+          width: calc(100% + 16px);
+          height: calc(100% + 16px);
+          border: 2px solid $white-color;
+        }
+
+        .hit {
+          @include border-radius(0 5px 0 0);
+
+          position: absolute;
+
+          top: -8px;
+          right: -8px;
+
+          background: $orange-color;
+          height: 60px;
+
+          text-transform: uppercase;
+          font-weight: 700;
+
+          padding-right: 20px;
+
+          &::before {
+            position: absolute;
+            content: '';
+
+            top: 0;
+            left: -59px;
+            width: 0;
+            height: 0;
+            border-top: 60px solid $orange-color;
+            border-left: 60px solid transparent;
+          }
+
+          p {
+            @extend %no-margin;
+
+            font-weight: 700;
+            line-height: 60px;
+          }
+        }
+
+        figure {
+          min-height: 380px;
+          max-height: 380px;
+
+          overflow: hidden;
+        }
+
+        .image {
+          min-height: 380px;
+          max-height: 380px;
+
+          img {
+            width: 100%;
+            height: auto;
+
+            object-fit: cover;
+          }
+        }
+
+        .description {
+          position: absolute;
+
+          bottom: 0;
+          left: 0;
+
+          width: 100%;
+          height: 225px;
+          background: url(/wp-content/themes/remonterra/resources/images/offers/description.svg);
+          background-size: cover;
+          background-position: center;
+
+          text-align: center;
+
+          padding: 4.5rem 3rem 2rem;
+
+          @media only screen and (max-width: 560px) {
+            height: 272px;
+          }
+
+          &::before {
+            position: absolute;
+            content: '';
+
+            top: 5px;
+            left: 0;
+
+            width: 80%;
+            height: auto;
+            background: url(/wp-content/themes/remonterra/resources/images/offers/description_top.svg);
+            background-size: cover;
+            background-position: center;
+
+            margin: 0 auto;
+          }
+
+          h3 {
+            span {
+              display: block;
+              font-size: 60%;
+            }
+          }
+        }
+      }
+    }
+
+    .more {
+      @include button-absolute();
+    }
+  }
+
+  .owl-dots {
+    text-align: center;
+
+    .owl-dot {
+      @include border-radius(50%);
+
+      width: 20px;
+      height: 20px;
+
+      border: 2px solid $white-color;
+      margin: 0 10px;
+
+      &.active {
+        background: $white-color;
+      }
+    }
+  }
+}
+
+p:empty ~ .hit {
+  display: none;
+}
+

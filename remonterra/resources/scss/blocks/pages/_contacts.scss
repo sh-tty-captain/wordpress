@@ -1,0 +1,616 @@
+.contacts_header_section {
+  @include gradient($yellow-color, $orange-color);
+
+  position: relative;
+  color: $white-color;
+
+  padding-top: calc(2rem + 85px);
+
+  .contacts {
+    &__description {
+      width: 100%;
+      text-align: center;
+
+      h1 {
+        position: relative;
+        display: inline-block;
+
+        width: auto;
+        text-transform: uppercase;
+
+        padding-right: 75px;
+        margin-bottom: 0;
+
+        @media only screen and (max-width: 600px) {
+          padding-right: 0;
+        }
+
+        &::after {
+          @extend %verticalAlign;
+
+          content: '';
+
+          right: 0;
+
+          width: 52px;
+          height: 70px;
+          background: url(/wp-content/themes/remonterra/resources/images/contacts/location.svg);
+          background-size: cover;
+
+          @media only screen and (max-width: 600px) {
+            display: none;
+          }
+        }
+      }
+
+      .breadcrumbs {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        margin-top: 0;
+
+        @media only screen and (max-width: 560px) {
+          margin-bottom: 20px;
+        }
+
+        li {
+          padding-left: 0;
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &__map {
+      position: relative;
+
+      width: 100%;
+      background: $white-color;
+
+      padding: 20px 15px 0;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .description {
+        @extend %border-box;
+        @include border-radius(5px);
+
+        position: absolute;
+
+        bottom: 0;
+        right: 55px;
+
+        width: 460px;
+        background: $white-color;
+        color: $dark-gray-color;
+
+        padding-bottom: 4rem;
+
+        @media only screen and (max-width: 600px) {
+          position: relative;
+          right: 0;
+
+          width: 100%;
+
+          padding-bottom: 0;
+        }
+
+        h2 {
+          @include gradient-3($yellow-color, $orange-color);
+          @extend %border-box;
+
+          font-size: 2rem;
+          text-align: center;
+          color: $white-color;
+
+          padding: 10px;
+
+          @media only screen and (max-width: 460px) {
+            font-size: 1.5rem;
+            line-height: 1.2;
+          }
+        }
+
+        form,
+        p {
+          @extend %border-box;
+
+          text-transform: inherit;
+          padding: 0 15px;
+        }
+
+        p {
+          @extend %no-margin;
+
+          &.first {
+            margin-top: 2rem;
+          }
+        }
+
+        form {
+          label {
+            display: block;
+
+            color: $orange-color;
+            font-weight: 600;
+
+            margin-bottom: 5px;
+          }
+
+          button {
+            @include gradient-4($yellow-color, $orange-color);
+
+            position: relative;
+            width: 100%;
+
+            color: $white-color;
+
+            padding: 20px 10px;
+            margin-top: 5px;
+
+            z-index: 9;
+
+            &:hover {
+              .button_hover {
+                opacity: 1;
+              }
+            }
+
+            .button_hover {
+              @include transition(opacity 1s linear);
+              @include gradient($yellow-color, $orange-color);
+
+              position: absolute;
+
+              top: 0;
+              left: 0;
+
+              width: 100%;
+              height: 100%;
+
+              opacity: 0;
+              z-index: -1;
+            }
+          }
+
+          .form_input {
+            &__input {
+              position: relative;
+              margin-bottom: 10px;
+              z-index: 9;
+
+              &::before {
+                @include border-radius(5px);
+                @include gradient-3($yellow-color, $orange-color);
+
+                position: absolute;
+                content: '';
+
+                top: -3px;
+                left: 0;
+
+                width: 100%;
+                height: calc(100% + 6px);
+
+                z-index: -1;
+              }
+
+              input {
+                @include border-radius(5px);
+                @include input($dark-gray-color, rgba($dark-gray-color, .6));
+
+                width: calc(100% - 6px);
+                background: $white-color;
+
+                color: $dark-gray-color;
+                text-transform: inherit;
+
+                z-index: 1;
+                border: none;
+                margin-left: 3px;
+
+                @media only screen and (max-width: 600px) {
+                  padding: 15px;
+                }
+
+                &:active,
+                &:focus {
+                  background: $white-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .clip {
+    position: absolute;
+
+    bottom: -8px;
+    left: 0;
+
+    width: 100%;
+    height: auto;
+
+    pointer-events: none;
+    z-index: 1;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.contacts_main_section {
+  position: relative;
+  color: $dark-gray-color;
+
+  padding: 2rem 0 5rem;
+
+  h2 {
+    color: $orange-color;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  p.email {
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 25px;
+
+    a {
+      color: $black-color;
+
+      &::before {
+        background: $black-color;
+      }
+    }
+  }
+
+  form {
+    label {
+      display: block;
+
+      color: $orange-color;;
+      font-weight: 600;
+      font-size: 1.3rem;
+
+      margin-bottom: 5px;
+    }
+
+    .form_button {
+      @include border-radius(5px);
+      @include gradient-3($yellow-color, $orange-color);
+
+      position: relative;
+      width: 100%;
+
+      .button_hover {
+        @include border-radius(5px);
+        @include transition(opacity 1s linear);
+        @include gradient-3($orange-color, $yellow-color);
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        opacity: 0;
+        z-index: 1;
+      }
+
+      &:hover {
+        .button_hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .submit,
+    button {
+      position: relative;
+      width: 100%;
+
+      background: none;
+      color: $white-color;
+
+      padding: 20px 10px 25px !important;
+      margin-top: 5px;
+
+      z-index: 9;
+    }
+
+    .form_select {
+      width: 100%;
+      margin-bottom: 10px;
+
+      label {
+        color: $dark-gray-color;
+        font-weight: 400;
+      }
+
+      &__select {
+        position: relative;
+
+        &:hover {
+          &::after {
+            background: $yellow-color;
+          }
+
+          select {
+            border: 3px solid $yellow-color;
+          }
+        }
+
+        &::after {
+          @include transition();
+          @include border-radius(5px);
+
+          position: absolute;
+          content: '';
+
+          top: 0;
+          right: 0;
+
+          width: 105px;
+          height: 100%;
+          background: $orange-color;
+
+          pointer-events: none;
+        }
+
+        &::before {
+          @extend %verticalAlign;
+
+          content: '';
+
+          right: 38px;
+
+          width: 30px;
+          height: 27px;
+          background: url(/wp-content/themes/remonterra/resources/images/contacts/arrow.svg);
+          background-size: cover;
+
+          z-index: 1;
+
+          pointer-events: none;
+        }
+
+        select {
+          @include transition();
+          @include border-radius(5px);
+
+          width: 100%;
+          font-size: 1.3rem;
+
+          border: 3px solid $orange-color;
+          outline: none;
+
+          padding: 15px;
+        }
+      }
+    }
+
+    .form_input {
+      width: 49.5%;
+
+      @media only screen and (max-width: 480px) {
+        width: 100%;
+      }
+
+      &__input {
+        margin-bottom: 10px;
+
+        input {
+          @include input($orange-color, rgba($orange-color, .6));
+
+          width: 100%;
+
+          border: 3px solid $orange-color;
+          padding: 15px !important;
+          color: $dark-gray-color !important;
+          text-transform: inherit;
+
+          &:active,
+          &:focus {
+            @include input($dark-gray-color, $dark-gray-color);
+
+            border: 3px solid $yellow-color;
+            padding: 15px !important;
+          }
+        }
+
+        input[type=text] {
+          color: $dark-gray-color !important;
+          text-transform: inherit;
+        }
+      }
+    }
+
+    .form_textarea {
+      width: 100%;
+
+      &__textarea {
+        margin-bottom: 10px;
+
+        textarea {
+          @include input($orange-color, rgba($orange-color, .6));
+
+          width: 100%;
+          min-height: 150px;
+
+          color: $dark-gray-color !important;
+          text-transform: inherit;
+
+          border: 3px solid $orange-color;
+          padding: 15px !important;
+
+          &::-webkit-input-placeholder {
+            text-transform: uppercase;
+          }
+
+          &::-ms-input-placeholder {
+            text-transform: uppercase;
+          }
+
+          &::-moz-placeholder {
+            text-transform: uppercase;
+          }
+
+          &::placeholder {
+            text-transform: uppercase;
+          }
+
+          &:-ms-input-placeholder {
+            text-transform: uppercase;
+          }
+
+          &:-moz-placeholder {
+            text-transform: uppercase;
+          }
+
+          &:active,
+          &:focus {
+            @include input($dark-gray-color, $dark-gray-color);
+
+            border: 3px solid $yellow-color;
+            text-transform: inherit;
+            padding: 15px !important;
+          }
+        }
+      }
+    }
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  .table_head {
+    margin-top: 40px;
+
+    table {
+      border-spacing: 5px !important;
+      padding: 0;
+      margin: 0;
+
+      tr {
+        td {
+          @include border-radius(10px);
+
+          background: rgba($gray-color, .1);
+
+          text-align: center;
+          text-transform: uppercase;
+
+          border-left: none;
+          padding: 15px;
+          height: 70px;
+        }
+      }
+    }
+  }
+
+  .table_content {
+    table {
+      @include border-radius(0 0 10px 10px);
+
+      border-top: none;
+      border-bottom: 5px solid rgba($gray-color, .1);
+
+      margin-top: -5px;
+
+      td {
+        height: 50px;
+      }
+    }
+  }
+
+  table {
+    @include border-radius(10px 10px 0 0);
+
+    border: 5px solid rgba($gray-color, .1);
+    border-bottom: none;
+    border-spacing: 0;
+
+    padding: 15px 10px 30px;
+    margin-top: 50px;
+
+    tr {
+      &:last-child {
+        td {
+          border-bottom: none;
+        }
+      }
+
+      td {
+        border-left: 1px solid rgba($gray-color, .1);
+        border-bottom: 1px solid rgba($gray-color, .1);
+
+        padding: 0 15px;
+
+        &:first-child {
+          border-left: none;
+        }
+      }
+    }
+  }
+}
+
+#success {
+  position: relative;
+
+  background: $white-color;
+
+  text-align: center;
+  color: $dark-gray-color;
+
+  padding: 4rem 0 6rem;
+  margin-top: 2rem;
+
+  button {
+    margin-top: 2rem;
+
+    border: 3px solid $orange-color;
+    padding: 15px 50px;
+
+    &:hover {
+      background: $orange-color;
+      color: $white-color;
+    }
+  }
+
+  .clip {
+    position: absolute;
+    content: '';
+
+    top: -5rem;
+    left: 0;
+
+    width: 100%;
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+#success {
+  .content {
+    margin-top: -2rem;
+  }
+}

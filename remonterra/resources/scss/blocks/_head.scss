@@ -1,0 +1,44 @@
+main {
+  .license {
+    text-align: center;
+  }
+
+  .head {
+    color: $white-color;
+
+    &.success_head {
+      position: relative;
+      padding-bottom: 5rem;
+
+      .info__breadcrumbs {
+
+      }
+    }
+  }
+
+  .info__breadcrumbs {
+    ul {
+      @media only screen and (max-width: 560px) {
+        width: 100%;
+        text-align: center !important;
+        margin-bottom: 15px !important;
+      }
+    }
+    a {
+       &:hover {
+         color: $white-color;
+       }
+     }
+  }
+
+  .info__description {
+    @media only screen and (max-width: 560px) {
+      width: 100%;
+      text-align: center !important;
+    }
+  }
+}
+
+.grecaptcha-badge {
+  z-index: 9;
+}

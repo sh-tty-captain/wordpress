@@ -1,0 +1,607 @@
+#calculator {
+  @include gradient($yellow-color, $orange-color);
+
+  position: relative;
+  padding-bottom: 14rem;
+
+  @media only screen and (max-width: 980px) {
+    padding-bottom: 9rem;
+  }
+
+  @media only screen and (max-width: 540px) {
+    padding-bottom: 6rem;
+  }
+
+  &.success_send {
+    padding-bottom: 0;
+  }
+
+  #step-wrapper {
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .step {
+      position: relative;
+
+      &.step-2,
+      &.step-3,
+      &.step-4 {
+        display: none;
+
+        text-align: left;
+      }
+
+      &.step-1 {
+        z-index: 5;
+      }
+
+      &.step-2 {
+        z-index: 4;
+      }
+
+      &.step-3 {
+        z-index: 3;
+      }
+
+      &.step-4 {
+        z-index: 2;
+      }
+
+      .next-step {
+        @include button();
+
+        display: inline-block;
+
+        font-size: 1.7rem;
+
+        padding: 15px 60px;
+        margin-top: 30px;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .step-inner {
+        position:relative;
+
+        text-align: right;
+        color: $white-color;
+
+        z-index: 2;
+
+        .hidden {
+          display: none;
+        }
+
+        h2 {
+          text-align: left;
+          color: $white-color;
+
+          @media only screen and (max-width: 560px) {
+            font-size: 1.8rem;
+          }
+
+          @media only screen and (max-width: 420px) {
+            font-size: 1.5rem;
+          }
+        }
+
+        .item-type {
+          @include flexbox(flex-start, center, space-between);
+
+          overflow: hidden;
+          margin-bottom: 30px;
+
+          &.hidden {
+            display: none;
+          }
+
+          &.active-item {
+            .title {
+              @include border-radius(5px);
+
+              background: $white-color;
+
+              a {
+                color: $orange-color;
+                border-bottom: 1px dashed $orange-color;
+              }
+
+              .hide-desc {
+                color: $dark-gray-color;
+              }
+            }
+          }
+
+          .hide-desc {
+            color: $white-color;
+            padding: 6px 0 2px 0;
+          }
+
+          .check {
+            @include flexbox(flex-end, center, flex-end);
+
+            width: 20%;
+
+            @media only screen and (max-width: 940px) {
+              width: 25%;
+            }
+
+            @media only screen and (max-width: 768px) {
+              width: 30%;
+            }
+
+            @media only screen and (max-width: 620px) {
+              width: 35%;
+            }
+
+            @media only screen and (max-width: 560px) {
+              @include flexbox(flex-start, flex-start, space-between);
+
+              width: 100%;
+              margin-top: 10px;
+            }
+
+            .price {
+              font-size: 1.5rem;
+              margin-right: 15px;
+
+              @media only screen and (max-width: 560px) {
+                order: 2;
+              }
+
+              .cost {
+                font-weight: 700;
+              }
+            }
+
+            .un-check {
+              @include border-radius(5px);
+              @include transition();
+
+              position: relative;
+
+              width: 35px;
+              height: 35px;
+
+              border: 3px solid $white-color;
+
+              &:hover {
+                cursor: pointer;
+              }
+
+              &.active-check {
+                &::before {
+                  position: absolute;
+                  content: '\0474';
+
+                  top: -4px;
+                  left: 4px;
+
+                  font-size: 1.7rem;
+                  font-weight: 600;
+                  color: $white-color;
+                }
+              }
+
+              &.disabled-check {
+                opacity: .5;
+
+                &:hover {
+                  cursor: default;
+                }
+              }
+            }
+          }
+
+          .title {
+            @extend %no-margin;
+
+            width: 79%;
+
+            text-align: left;
+            padding: 5px 10px;
+
+            @media only screen and (max-width: 940px) {
+              width: 74%;
+            }
+
+            @media only screen and (max-width: 768px) {
+              width: 69%;
+            }
+
+            @media only screen and (max-width: 620px) {
+              width: 65%;
+            }
+
+            @media only screen and (max-width: 560px) {
+              width: 100%;
+            }
+
+            a {
+              font-size: 1.3rem;
+              text-transform: uppercase;
+              font-weight: 600;
+
+              border-bottom: 1px dashed $white-color;
+
+              @media only screen and (max-width: 560px) {
+                font-size: 1.1rem;
+              }
+
+              &:hover {
+                color: $white-color;
+                opacity: .7;
+              }
+
+              &:focus,
+              &:active {
+                color: $white-color;
+              }
+
+              &::before {
+                display: none;
+              }
+            }
+          }
+        }
+
+        #num_new_building {
+          @include flexbox(flex-start, center, space-between);
+
+          text-align: left;
+          font-size: 1.3rem;
+          text-transform: uppercase;
+          font-weight: 600;
+          padding: 5px 0 5px 10px;
+
+          input[type="text"] {
+            width: 30%;
+            height: 55px;
+
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            border: 3px solid $white-color;
+            padding: 2px 5px;
+
+            &:focus{
+              border: 3px solid $white-color;
+            }
+          }
+        }
+
+        #num-html-page {
+          span {
+            border-bottom: 1px dashed $white-color;
+          }
+        }
+
+        .overlay {
+          @include border-radius(5px);
+
+          position: absolute;
+          display: none;
+
+          top: -15px;
+          left: 0;
+
+          height: calc(100% + 30px);
+          width: 100%;
+          background: rgba($yellow-color, .7);
+
+          z-index: 10;
+
+          p {
+            @include border-radius(5px);
+
+            position: absolute;
+
+            bottom: 20px;
+            left: 0;
+            right: 0;
+
+            width: 100%;
+            background: $white-color;
+
+            color: $orange-color;
+            font-size: 1.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: center;
+
+            padding: 15px 60px;
+            margin: auto;
+          }
+        }
+      }
+    }
+
+    #progress {
+      @include border-radius(5px);
+      @include flexbox(flex-start, flex-start, space-between);
+
+      position: relative;
+
+      background: $white-color;
+
+      padding: 10px;
+      margin-top: 30px;
+
+      #progress-bar {
+        @include border-radius(5px);
+
+        width: 48%;
+        border: 2px solid $yellow-color;
+
+        height: 25px;
+
+        overflow: hidden;
+
+        &.full {
+          width: 100%;
+
+          #progress-inner {
+            color: $white-color;
+            text-transform: uppercase;
+          }
+        }
+
+        #progress-inner {
+          width: 0;
+          height: 100%;
+          background: $yellow-color;
+
+          text-align: center;
+          color: $dark-gray-color;
+          text-indent: 5px;
+
+          &.white {
+            color: $white-color;
+          }
+        }
+      }
+
+      #progress-step {
+        text-align: right;
+
+        &.full {
+          width: 100%;
+        }
+
+        p {
+          @extend %no-margin;
+
+          font-size: 1rem;
+          line-height: 1;
+          color: $dark-gray-color;
+
+          span {
+            font-size: 1.7rem;
+            font-weight: 600;
+          }
+        }
+
+        #button-payment {
+          @include button($orange-color, $white-color);
+
+          display: none;
+          font-size: 1.7rem;
+
+          padding: 15px 60px;
+
+          &.full {
+            display: block !important;
+            width: 100%;
+
+            text-align: center;
+
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+
+    input[type='checkbox']{
+      display: none;
+    }
+  }
+
+  #result {
+    @include border-radius(5px);
+
+    position: relative;
+    display: none;
+
+    padding: 20px;
+
+    z-index: 3;
+
+    h2 {
+      color: $white-color;
+
+      @media only screen and (max-width: 560px) {
+        font-size: 2rem;
+      }
+
+      @media only screen and (max-width: 420px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    #in-total {
+      .total__result {
+        color: $white-color;
+
+        p {
+          @include flexbox(flex-start, stretch, flex-start);
+          @include border-radius(5px);
+
+          height: 55px;
+          line-height: 50px;
+          border: 3px solid $white-color;
+
+          @media only screen and (max-width: 900px) {
+            padding: 0 15px;
+          }
+
+          span.total__item {
+            width: 20%;
+
+            text-transform: uppercase;
+            color: $white-color;
+
+            border-right: 3px solid $white-color;
+            padding-left: 15px;
+            margin-right: 15px;
+
+            @media only screen and (max-width: 900px) {
+              display: none;
+            }
+          }
+
+          span {
+            color: $white-color;
+          }
+        }
+
+        .price_total {
+          @include flexbox(center, center, center);
+          @include border-radius(5px);
+
+          display: block;
+          background: $white-color;
+          height: auto;
+
+          color: rgba($dark-gray-color, .7);
+          line-height: 1;
+          font-weight: 600;
+          text-transform: uppercase;
+          font-size: 5rem;
+          text-align: center;
+
+          padding: 15px;
+          margin-top: 15px;
+
+          @media only screen and (max-width: 560px) {
+            font-size: 3rem;
+          }
+
+          span {
+            color: $orange-color;
+
+            &.price_total__color {
+              font-size: 5.8rem;
+
+              @media only screen and (max-width: 560px) {
+                font-size: 3.8rem;
+              }
+            }
+          }
+        }
+      }
+
+      .total__description {
+        color: rgba($dark-gray-color, .7);
+        text-align: center;
+        text-transform: uppercase;
+
+        margin: -5px 0 20px;
+
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    #button-order {
+      @include button();
+
+      display: block;
+
+      font-size: 1.7rem;
+      text-align: center;
+
+      padding: 20px 60px;
+      margin-top: 15px;
+
+      &::before {
+        display: none;
+      }
+
+      &.disabled {
+        background: rgba($white-color, .1);
+        color: rgba($white-color, .7);
+        pointer-events: none;
+      }
+    }
+  }
+
+  #form-wrap {
+    display: none;
+
+    &.total {
+      display: none;
+
+      &.result {
+        display: block;
+      }
+
+      h4 {
+        text-align: center;
+        color: $white-color;
+
+        margin-top: 30px;
+      }
+
+      form {
+        margin-top: 30px;
+
+        input[type="text"] {
+          width: 29%;
+
+          @media only screen and (max-width: 860px) {
+            width: 49%;
+            padding: 15px;
+          }
+
+          @media only screen and (max-width: 600px) {
+            width: 100%;
+          }
+        }
+
+        input[type="tel"] {
+          width: 39%;
+
+          @media only screen and (max-width: 860px) {
+            width: 49%;
+            padding: 15px;
+          }
+
+          @media only screen and (max-width: 600px) {
+            width: 100%;
+            margin-top: 10px;
+          }
+        }
+
+        .submit {
+          width: 29%;
+          font-size: 1.7rem;
+          padding: 20px 60px !important;
+
+          @media only screen and (max-width: 860px) {
+            width: 100%;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}

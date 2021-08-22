@@ -1,0 +1,286 @@
+#wpadminbar {
+  z-index: 999999;
+
+  a {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
+  color: $white-color !important;
+  border: 1px solid $white-color;
+}
+
+a {
+  &:visited {
+    color: $white-color;
+  }
+}
+
+.flexbox {
+  &__half {
+    width: 49%;
+  }
+
+  &__half-50 {
+    width: 50%;
+  }
+}
+
+.wp-block-envira-envira-gallery {
+  width: 100%;
+}
+
+
+.envira-gallery-wrap .envira-gallery-public.envira-gallery-css-animations {
+  .envira-gallery-item {
+    @include transition();
+
+    &:hover {
+      opacity: .8 !important;
+    }
+  }
+}
+
+#envirabox-close {
+  background-image: none !important;
+
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    @include transition();
+
+    position: absolute;
+
+    content: '\f00d';
+    right: -20px;
+    top: 5px;
+
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  &:hover {
+    &::after {
+      color: $yellow-color;
+    }
+  }
+}
+
+#envirabox-left #envirabox-left-ico, #envirabox-right #envirabox-right-ico {
+  background-image: none !important;
+
+  &::after {
+    @include transition();
+
+    position: absolute;
+
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  &:hover {
+    &::after {
+      color: $yellow-color;
+    }
+  }
+}
+
+#envirabox-left,
+#envirabox-right {
+  &:hover {
+    color: $yellow-color;
+  }
+
+  &::before {
+    display: none;
+  }
+}
+
+#envirabox-left #envirabox-left-ico {
+  &::after {
+    content: '\f053';
+  }
+}
+
+#envirabox-right #envirabox-right-ico {
+  &::after {
+    content: '\f054';
+  }
+}
+
+#envirabox-outer {
+  @include border-radius(5px);
+}
+
+#envirabox-content {
+  @include border-radius(5px);
+
+  border: 10px solid $white-color !important;
+}
+
+#envirabox-title-float-main {
+  background: none !important;
+}
+
+.widget-area {
+  @include flexbox(flex-start, flex-start, flex-start);
+
+  color: $dark-gray-color;
+
+  padding-bottom: 5rem;
+  padding-top: 1rem;
+
+  .widget_recent_entries {
+    width: 60%;
+  }
+
+  a {
+    color: $dark-gray-color;
+
+    &::before {
+      background: $orange-color;
+    }
+
+    &:hover {
+      color: $orange-color;
+    }
+  }
+}
+
+.clip {
+  pointer-events: none;
+}
+
+
+#price.price_section .wptmtable tr, #price.price_section .wptmtable th, #price.price_section .wptmtable td {
+  font-size: .9rem !important;
+  font-family: $deafult-font !important;
+  color: $dark-gray-color !important;
+}
+
+#price.price_section .wptmtable tr.spoiler__title td {
+  font-size: 1.5rem !important;
+  color: $white-color !important;
+}
+
+#price.price_section .wptmtable table .dtc0,
+#price.price_section .wptmtable table .dtc1,
+#price.price_section .wptmtable table .dtc2,
+#price.price_section .wptmtable table .dtc3,
+#price.price_section .wptmtable table tr.spoiler__title td {
+  border: none !important;
+  height: auto !important;
+  padding: 15px 0;
+}
+
+#price.price_section .wptmtable table tr.spoiler__content tr td {
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: none !important;
+  border-right: none !important;
+}
+
+#price.price_section .wptmtable table tr.spoiler__content tr {
+  border-top: none !important;
+  border-left: none !important;
+  border-bottom: 1px solid $dark-gray-color !important;
+  border-right: none !important;
+}
+
+#price.price_section .wptmtable table .dtc0,
+#price.price_section .wptmtable table tr.spoiler__content td.dtc0 {
+  width: 10% !important;
+
+  @media only screen and (max-width: 580px) {
+    width: 5% !important;
+  }
+}
+
+#price.price_section .wptmtable table .dtc1,
+#price.price_section .wptmtable table tr.spoiler__content td.dtc1 {
+  width: 70% !important;
+  border-left: 1px solid $dark-gray-color !important;
+
+  @media only screen and (max-width: 720px) {
+    width: 60% !important;
+  }
+
+  @media only screen and (max-width: 720px) {
+    width: 50% !important;
+  }
+}
+
+#price.price_section .wptmtable table .dtc2,
+#price.price_section .wptmtable table tr.spoiler__content td.dtc2 {
+  width: 15% !important;
+  border-left: 1px solid $dark-gray-color !important;
+
+  @media only screen and (max-width: 720px) {
+    width: 20% !important;
+  }
+
+  @media only screen and (max-width: 580px) {
+    width: 22% !important;
+  }
+}
+
+#price.price_section .wptmtable table .dtc3,
+#price.price_section .wptmtable table tr.spoiler__content td.dtc3 {
+  width: 15% !important;
+  border-left: 1px solid $dark-gray-color !important;
+  text-align: right;
+  padding: 15px !important;
+
+  @media only screen and (max-width: 580px) {
+    width: 22% !important;
+  }
+}
+
+#price.price_section .wptmtable table thead,
+#price.price_section .wptmtable table tfoot,
+#price.price_section .wptmtable table .dtc4,
+#price.price_section .wptmtable table .dtc5,
+#price.price_section .wptmtable table .dtc6,
+#price.price_section .wptmtable table .dtc7,
+#price.price_section .wptmtable table .dtc8,
+#price.price_section .wptmtable table .dtc9,
+#price.price_section .wptmtable table .dtc10,
+#price.price_section .wptmtable table .dtc11,
+#price.price_section .wptmtable table .dtc12,
+#price.price_section .wptmtable table .dtc13 {
+  display: none;
+}
+
+#price.price_section .wptmtable table .spoiler__title .dtc0 {
+  min-width: 100% !important;
+  height: 55px;
+}
+
+#price.price_section .wptmtable table .spoiler__title  {
+  margin-top: 20px;
+  margin-bottom: 0;
+
+  td {
+    line-height: 1;
+
+    p {
+      margin: 0;
+      line-height: 1;
+    }
+  }
+
+  &.active {
+    margin-bottom: 20px;
+  }
+}
+
+#price.price_section .wptmtable table .spoiler__content tr:first-child td {
+  font-weight: 700;
+}
