@@ -1,1 +1,1 @@
-WP Site: https://bekhterev.ru/
+# WP Site: https://bekhterev.ru/
