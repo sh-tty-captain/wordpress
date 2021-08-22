@@ -1,0 +1,294 @@
+body {
+  font-family: $deafult-font;
+  font-size: 100%;
+  line-height: 1.2;
+  color: $dark-gray-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 4rem;
+
+  margin: 8px 0 20px;
+
+  @media only screen and (max-width: 800px) {
+    font-size: 3rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    font-size: 2.5rem;
+  }
+
+  @media only screen and (max-width: 420px) {
+    font-size: 2.2rem;
+  }
+}
+
+h2 {
+  position: relative;
+  font-size: 3.5rem;
+
+  margin: 20px 0 15px;
+
+  &.background {
+    display: inline-block;
+    color: $orange-color;
+    font-size: 4rem;
+
+    margin: 40px 0 0;
+
+    @media only screen and (max-width: 990px) {
+      font-size: 3rem;
+    }
+
+    @media only screen and (max-width: 560px) {
+      font-size: 2.5rem;
+    }
+
+    @media only screen and (max-width: 460px) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (max-width: 400px) {
+      font-size: 1.5rem;
+    }
+
+    &.orange {
+      &::before {
+        top: auto;
+        bottom: 5px;
+        left: 15px;
+
+        height: 45px;
+      }
+    }
+
+
+    &.blue {
+      color: $dark-blue-color;
+
+      &::before {
+        top: auto;
+        bottom: 5px;
+        left: 15px;
+
+        height: 45px;
+        background: rgba($dark-blue-color, .05);
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+
+      top: -10px;
+      left: -20px;
+      right: 0;
+
+      width: calc(100% + 100px);
+      height: 60px;
+      background: rgba($orange-color, .05);
+
+      pointer-events: none;
+    }
+  }
+
+  @media only screen and (max-width: 990px) {
+    font-size: 3rem;
+  }
+
+  @media only screen and (max-width: 560px) {
+    font-size: 2.5rem;
+  }
+
+  @media only screen and (max-width: 460px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 400px) {
+    font-size: 1.5rem;
+  }
+}
+
+h3 {
+  position: relative;
+  font-size: 2.6rem;
+
+  @extend %no-margin;
+
+  &.background {
+    display: inline-block;
+    color: $dark-blue-color;
+
+    @media only screen and (max-width: 1200px) {
+      font-size: 2.2rem;
+    }
+
+    @media only screen and (max-width: 1099px) {
+      font-size: 2rem;
+    }
+
+    @media only screen and (max-width: 900px) {
+      font-size: 1.6rem;
+    }
+
+    &.full {
+      display: block;
+      text-align: center;
+
+      &::before {
+        left: 0;
+        width: 100%;
+      }
+    }
+
+    &.bottom {
+      display: inline-block;
+      font-size: 2rem;
+
+      &::before {
+        top: auto;
+        bottom: 0;
+        left: 30px;
+        width: calc(100% + 40px);
+      }
+    }
+
+    &.before_small {
+      line-height: 1.1;
+
+      &::before {
+        left: 20px;
+        width: calc(100% - 20px);
+        height: 75px;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+
+      top: -10px;
+      left: -90px;
+      right: 0;
+
+      width: calc(100% + 180px);
+      height: 30px;
+      background: rgba($dark-blue-color, .05);
+
+      pointer-events: none;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    font-size: 2.2rem;
+  }
+
+  @media only screen and (max-width: 1099px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (max-width: 900px) {
+    font-size: 1.6rem;
+  }
+}
+
+h4 {
+  font-size: 1.4rem;
+
+  @extend %no-margin;
+}
+
+p,
+li {
+  @extend %deafult-font;
+  @extend %no-margin;
+
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+li {
+  margin: .1em 0;
+}
+
+p {
+  position: relative;
+
+  span {
+    color: $orange-color;
+    font-weight: 700;
+  }
+
+  &.size-font {
+    font-size: 1.8rem;
+  }
+
+  &.background {
+    &.blue {
+      &::before {
+        bottom: -10px;
+
+        height: 30px;
+        background: rgba($dark-blue-color, .05);
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+
+      bottom: -2px;
+      left: 0;
+      right: 0;
+
+      width: 90%;
+      height: 50px;
+      background: rgba($orange-color, .05);
+      margin: auto;
+
+      pointer-events: none;
+    }
+  }
+
+  strong {
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+}
+
+p,
+ul {
+  margin: 10px 0;
+}
+
+a {
+  color: $orange-color;
+  text-decoration: none;
+
+  border-bottom: none;
+
+  @include transition();
+
+  &:hover {
+    color: $black-color;
+    border-bottom: none;
+    cursor: pointer;
+  }
+
+  &:visited {
+    color: $orange-color;
+  }
+}

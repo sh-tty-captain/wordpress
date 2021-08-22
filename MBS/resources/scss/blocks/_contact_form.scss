@@ -1,0 +1,181 @@
+.orange {
+  .form__textarea {
+    &::before {
+      background: rgba($orange-color, .05);
+    }
+  }
+}
+
+.comment-form-comment,
+.form__textarea {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+
+    top: 30px;
+    left: 35px;
+
+    width: calc(100% - 55px);
+    height: calc(100% - 30px);
+    background: rgba($dark-blue-color, .05);
+
+    pointer-events: none;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+
+    bottom: 18px;
+    left: 0;
+
+    width: calc(100% - 90px);
+    height: 1px;
+    background: rgba($gray-color, .5);
+
+    pointer-events: none;
+  }
+}
+
+.form {
+  @include flexbox(flex-start, flex-start, space-between);
+
+  margin-top: 50px;
+
+  &.connect {
+    .form__input {
+      width: 32%;
+
+      @media only screen and (max-width: 768px) {
+        width: 100%;
+      }
+    }
+
+    .form__submit {
+      text-align: center;
+    }
+  }
+
+  h3 {
+    margin: 70px auto 15px;
+  }
+
+  &__textarea,
+  &__input {
+    position: relative;
+
+    input,
+    textarea {
+      &:valid{
+       & ~ label {
+          @include transform(translateY(10px));
+
+          opacity: 0;
+        }
+      }
+    }
+
+    label {
+      @include transition();
+
+      position: absolute;
+
+      left: 0;
+
+      font-size: 1.4rem;
+      font-family: $button-font;
+      color: rgba($dark-gray-color, .5);
+
+      pointer-events: none;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+
+    label {
+      top: 27px;
+    }
+  }
+
+  &__select {
+    position: relative;
+
+    width: 45%;
+    margin-top: 15px;
+
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+
+      top: 12px;
+      right: 2px;
+
+      width: 80px;
+      height: 40px;
+      background: $white-color;
+      border-left: 1px solid rgba($gray-color, .5);
+      pointer-events: none;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+
+      top: 21px;
+      right: 26px;
+
+      background: url(/wp-content/themes/MBS/resources/images/svg/arrow_bottom.svg);
+      background-size: cover;
+      width: 25px;
+      height: 22px;
+      pointer-events: none;
+    }
+  }
+
+  &__input {
+    width: 49%;
+    margin-top: 30px;
+
+    label {
+      top: 15px;
+    }
+
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+    }
+
+    input {
+      width: 100%;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    text-align: right;
+    margin-top: 40px;
+
+    a,
+    input,
+    .submit {
+      display: inline-block;
+      font-size: 2rem;
+      padding: 20px 80px 15px;
+    }
+  }
+}
+
+input:focus ~ label,
+textarea:focus ~ label,
+input:active ~ label,
+textarea:active ~ label {
+  @include transform(translateY(10px));
+
+  opacity: 0;
+}

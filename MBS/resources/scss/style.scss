@@ -1,0 +1,18 @@
+@import "variables";
+
+@import "global/fonts";
+
+@import "normalize";
+@import "mixins";
+@import "rule";
+
+@import "global/typography";
+
+@import "blocks/head";
+@import "blocks/navigation";
+@import "blocks/footer";
+@import "blocks/contact_form";
+
+@import "blocks/pages/main";
+@import "blocks/pages/about";
+@import "blocks/pages/inner";
