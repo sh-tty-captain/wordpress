@@ -1,0 +1,642 @@
+#wpadminbar {
+  a {
+    &::before,
+    &::after {
+      bottom: inherit;
+      left: inherit;
+      width: inherit;
+      height: inherit;
+      background: inherit;
+    }
+  }
+}
+
+.lb-dislike,
+.lb-like-label {
+  display: none !important;
+}
+
+.lb-hidden {
+  display: inline-block !important;
+}
+
+.lb-like {
+  border-radius: 0 !important;
+  border: none !important;
+  background-color: transparent;
+  padding: 0 !important;
+  color: $gray-color !important;
+  margin-right: 0 !important;
+}
+
+.likebtn-icon {
+  position: relative;
+  background-image: none !important;
+  width: 20px !important;
+  margin-right: 4px !important;
+
+  &::before {
+    @include transition();
+
+    position: absolute;
+    content: '\f004';
+
+    top: -2px;
+    right: 0;
+    left: 0;
+    text-align: center;
+
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    font-size: calc(#{$normal-size} - 3px);
+    color: $gray-color;
+  }
+
+  &:hover {
+    &::before {
+      font-weight: 700;
+    }
+  }
+}
+
+.likebtn-wrapper * {
+  font-family: $deafult-font !important;
+  font-size: $small-size !important;
+  direction: initial !important;
+}
+
+.lb-style-white .lb-count {
+  border-left: none !important;
+  font-family: $deafult-font !important;
+  font-size: calc(#{$normal-size} - 4px) !important;
+  padding: 0 !important;
+  display: inline-block !important;
+}
+
+.lb-style-white .lb-like {
+  background-color: transparent !important;
+}
+
+.likebtn-wrapper {
+  line-height: 1 !important;
+}
+
+.likebtn-wrapper .lb-a .lb-tt {
+  display: none !important;
+}
+
+.post-views {
+  .dashicons-visibility {
+    position: relative;
+    width: 20px !important;
+
+    &::before {
+      position: absolute;
+      content: '\f06e';
+
+      top: 2px;
+      left: 0;
+      right: 0;
+      text-align: center;
+
+      font-family: "Font Awesome 5 Free";
+      font-weight: 400;
+      font-size: calc(#{$normal-size} - 3px);
+      color: $gray-color;
+    }
+  }
+}
+
+.grid {
+  padding: 10px 0 !important;
+
+  .grid-items {
+    text-align: right !important;
+    padding: 0 !important;
+
+    .item {
+      position: relative;
+
+      width: calc(100% - 170px) !important;
+      background: none !important;
+
+      margin: 0 0 10px !important;
+
+      .layer-wrapper {
+        position: relative;
+      }
+
+      .item {
+        width: 100% !important;
+      }
+
+      .element {
+        img {
+          width: 100%;
+          height: auto;
+          line-height: 1;
+          object-fit: cover;
+        }
+      }
+
+      .image {
+        position: relative;
+        line-height: 1;
+
+        &::before {
+          @include transition();
+
+          position: absolute;
+          content: '';
+
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: calc(100% - 5px);
+          background-color: $middle-gray-color;
+          mix-blend-mode: multiply;
+        }
+      }
+
+      .post_date {
+        @include border-radius(3px 0 0 3px);
+        @extend %border-box;
+
+        position: absolute;
+
+        top: 12px;
+        right: 0;
+
+        font-size: calc(#{$normal-size} - 2px);
+        font-weight: 700;
+        line-height: 1;
+
+        background: $white-color;
+        padding: 15px 40px 10px;
+
+      }
+
+      #description {
+        @include border-radius(0 3px 3px 0);
+
+        position: absolute;
+        left: 0;
+        bottom: 15px;
+
+        width: auto;
+        background: $white-color;
+
+        padding: 15px 40px 15px 30px;
+
+        .title_link {
+          font-family: $header-font;
+          font-size: calc(#{$max-size} - 16px);
+          line-height: 1;
+          text-transform: uppercase;
+
+          a {
+            display: block;
+
+            color: $gray-color;
+            line-height: 1;
+
+            &::before,
+            &::after {
+              bottom: 5px;
+              background: $gray-color;
+              width: 0;
+            }
+
+            &:hover {
+              &::before,
+              &::after {
+                width: 50%;
+              }
+            }
+          }
+        }
+
+        .excerpt_read_more {
+          color: $gray-color;
+          font-size: calc(#{$normal-size} - 3px);
+          text-transform: lowercase;
+
+          margin-top: -5px;
+        }
+      }
+
+      #statistics {
+        position: absolute;
+
+        left: -105px;
+        bottom: 12px;
+
+        text-align: right;
+
+        width: 90px;
+
+        .likebtn_like_button,
+        .post_views_counter {
+          text-align: right !important;
+        }
+      }
+    }
+  }
+}
+
+#yamap0 {
+  @include border-radius(3px);
+
+  position: relative;
+  width: 95%;
+
+  margin: 0 auto;
+
+  &::before {
+    @include border-radius(3px);
+
+    position: absolute;
+    content: '';
+
+    top: -15px;
+    left: -15px;
+
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+
+    border: 2px solid $white-color;
+  }
+
+  ymaps {
+    @include border-radius(3px);
+  }
+}
+
+.pgcsimplygalleryblock-slider-slider-view {
+  max-width: 1100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 2;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+  }
+}
+
+.pgcsimplygalleryblock-slider-item-inner {
+  position: relative;
+
+  &::before {
+    @include transition();
+    @include transform(translate(-50%, 50%));
+
+    position: absolute;
+    content: 'Zoom';
+
+    top: 45%;
+    left: 50%;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $white-color;
+    text-decoration: underline;
+    opacity: 0;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+
+/*
+.pgcsimplygalleryblock-slider-next-prev-navi {
+  transform: none !important;
+
+  svg {
+    display: none !important;
+  }
+
+  background-color: transparent !important;
+
+  &::before {
+    @extend %verticalAlign;
+
+    content: '';
+
+    width: 90px;
+    height: 90px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &.prev {
+    &::before {
+      visibility: visible;
+      left: -50px;
+      background-image: url(/wp-content/themes/jewish/resources/images/svg/arrow_left.svg);
+    }
+
+    &:hover {
+      transform: translateX(15px) !important;
+    }
+  }
+
+  &.next {
+    &::before {
+      right: 0;
+      background-image: url(/wp-content/themes/jewish/resources/images/svg/arrow_right.svg);
+    }
+
+    &:hover {
+      transform: translateX(-15px) !important;
+    }
+  }
+}
+  */
+
+.nf-form-title,
+.nf-before-form-content {
+  display: none;
+}
+
+.nf-after-form-content {
+  position: relative;
+
+  .nf-error-msg {
+    position: absolute;
+
+    right: 0;
+
+    color: $beige-color !important;
+    text-align: center;
+  }
+}
+
+
+nf-fields-wrap {
+  display: grid;
+  grid-template-columns: 25% 25%  25% 25%; /* 3 columns */
+  grid-template-rows:  20% 20% 20% 20% 20%; /* 5 rows */
+
+  grid-template-areas: "name name phone phone"
+  "email email map map"
+  "date persons map map"
+  "requests requests map map"
+  "requests requests submit submit";
+
+  nf-field {
+    .nf-error-required-error {
+      color: $beige-color !important;
+    }
+
+    .nf-error .ninja-forms-field {
+      border-color: $beige-color !important;
+    }
+
+    .nf-error.field-wrap .nf-field-element:after {
+      background: $beige-color !important;
+      color: $maroon-color;
+    }
+
+    .nf-field {
+      width: calc(100% - 15px);
+
+      input, textarea {
+        @include input();
+
+        color: $white-color !important;
+      }
+
+      .nf-field-label {
+        margin-bottom: 0 !important;
+
+        .ninja-forms-req-symbol {
+          color: $beige-color;
+        }
+
+        label {
+          color: $white-color;
+          font-weight: 100;
+          font-size: calc(#{$normal-size} - 4px);
+        }
+      }
+    }
+
+    &:nth-child(1) {
+      grid-area: name;
+    }
+
+    &:nth-child(2) {
+      grid-area: phone;
+
+      .nf-field-container {
+        @include flexbox(flex-end, flex-start, flex-end);
+      }
+    }
+
+    &:nth-child(3) {
+      grid-area: email;
+    }
+
+    &:nth-child(4) {
+      grid-area: map;
+
+      .nf-field-container {
+        @include flexbox(flex-end, flex-start, flex-end);
+      }
+    }
+
+    &:nth-child(5) {
+      grid-area: date;
+    }
+
+    &:nth-child(6) {
+      grid-area: persons;
+
+      .field-wrap .nf-field-element {
+        position: relative;
+
+        &::before {
+          @include transform(translateY(-50%));
+
+          position: absolute;
+          content: '\f0d7';
+
+          top: 50%;
+          right: 15px;
+
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          color: $white-color;
+          z-index: 1;
+        }
+
+        select {
+          @include input();
+
+          color: $white-color !important;
+
+          cursor: pointer;
+
+          option {
+            color: $gray-color;
+            padding-top: 5px;
+          }
+        }
+
+        div {
+          display: none;
+        }
+      }
+    }
+
+    &:nth-child(7) {
+      grid-area: requests;
+
+      .field-wrap {
+       margin-top: 12px;
+      }
+    }
+
+    &:nth-child(8) {
+      grid-area: submit;
+      @include flexbox(flex-start, flex-start, flex-end, column, nowrap);
+
+      .nf-field-container {
+        @include flexbox(flex-end, flex-start, flex-end);
+
+        margin-bottom: 0;
+
+        .submit-wrap {
+          .nf-field-element {
+            position: relative;
+            width: auto !important;
+
+            input {
+              @include button();
+
+              font-size: calc(#{$middle-size} + 5px);
+              height: auto;
+              padding: 20px 45px 8px !important;
+
+              -webkit-appearance: none !important;
+
+              @media only screen and (max-width: 767px) {
+                padding: 26px 45px 14px !important;
+              }
+            }
+
+            &::before {
+              @include transform(translate(-50%, -50%));
+              @include border-radius(3px);
+
+              position: absolute;
+              content: '';
+
+              top: 50%;
+              left: 50%;
+
+              width: calc(100% - 10px);
+              height: calc(100% - 10px);
+              border: 1px solid $beige-color;
+
+              pointer-events: none;
+              z-index: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hotels {
+  position: relative;
+  margin-top: -60px;
+
+  .places {
+    max-width: 1100px !important;
+    margin: auto;
+
+    .owl-stage-outer {
+      overflow: hidden !important;
+      padding-top: 45px;
+    }
+  }
+
+  .owl-nav {
+    @include transform(translateY(-50%));
+
+    display: block !important;
+    position: absolute;
+
+    top: 50%;
+
+    width: 100%;
+
+    button {
+      position: absolute;
+      background: none !important;
+
+      span {
+        display: none;
+      }
+
+      &::before {
+        @include transition();
+
+        border: none !important;
+
+        width: 90px !important;
+        height: 90px !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        pointer-events: all;
+      }
+
+      &::after {
+        display: none;
+      }
+
+      &.owl-prev {
+        left: -100px;
+
+        &::before {
+          background-image: url(/wp-content/themes/jewish/resources/images/svg/arrow_left.svg);
+        }
+
+        &:hover {
+          transform: translateX(15px) !important;
+        }
+      }
+
+      &.owl-next {
+        right: -100px;
+
+        &::before {
+          background-image: url(/wp-content/themes/jewish/resources/images/svg/arrow_right.svg);
+        }
+
+        &:hover {
+          transform: translateX(-15px) !important;
+        }
+      }
+    }
+  }
+}

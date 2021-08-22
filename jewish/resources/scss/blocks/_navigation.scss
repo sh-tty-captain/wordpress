@@ -1,0 +1,169 @@
+nav {
+  @include transition();
+
+  height: 110px;
+  background: $white-color;
+
+  .content_1800 {
+    align-items: center;
+  }
+
+  .logo {
+    width: 15%;
+
+    a {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+
+    img {
+      @include transition();
+
+      max-width: 170px;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+
+  .fa-bars {
+    display: none;
+  }
+
+  .navigation {
+    width: 65%;
+    align-items: center;
+
+    li {
+      @extend %no-margin;
+
+      line-height: 1;
+
+      padding-left: 0;
+      padding-right: 35px;
+
+      &::before {
+        @include transform(translateY(0));
+        @include transition();
+
+
+        content: '';
+
+        top: 0;
+        left: auto;
+        right: 0;
+
+        width: 20px;
+        height: 3px;
+        background: $maroon-color;
+      }
+
+      &:hover {
+        &::before {
+          height: 13px;
+        }
+
+        a {
+          &::before,
+          &::after {
+            width: 50%;
+          }
+        }
+      }
+
+      a {
+        color: $gray-color;
+        text-transform: uppercase;
+
+        &::before,
+        &::after {
+          width: 0;
+        }
+      }
+    }
+  }
+
+  .assets {
+    @extend %border-box;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    width: 20%;
+
+    &__language {
+      position: relative;
+      padding-right: 35px;
+      margin-right: 50px;
+
+      &::before {
+        @include transform(translateY(0));
+        @include transition();
+
+        position: absolute;
+        content: '';
+
+        top: 0;
+        left: auto;
+        right: 0;
+
+        width: 20px;
+        height: 3px;
+        background: $maroon-color;
+      }
+
+      select {
+        @include transition();
+
+        display: block;
+
+        font-family: $deafult-font;
+        font-size: calc(#{$normal-size} - 4px);
+        font-weight: 400;
+        line-height: 1;
+        text-transform: uppercase;
+
+        border: none;
+
+        -webkit-appearance: none;
+        cursor: pointer;
+
+        &:hover {
+          color: $maroon-color;
+        }
+      }
+    }
+
+    &__login {
+      @extend %border-box;
+
+      text-align: center;
+
+      border-left: 1px solid $maroon-color;
+      padding-left: 50px;
+
+      p {
+        @extend %no-margin;
+
+        font-size: calc(#{$normal-size} - 4px);
+
+        a {
+          font-weight: 700;
+          text-transform: uppercase;
+
+          &::before,
+          &::after {
+            display: none;
+          }
+
+          &:hover {
+            color: $black-color;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,345 @@
+*, *::after, *::before {
+  @extend %border-box;
+}
+
+.middle_font {
+  font-size: $middle-size;
+}
+
+.m-b-0 {
+  margin-bottom: 0 !important;
+}
+
+.m-b-50 {
+  margin-bottom: 50px !important;
+}
+
+.m-t-0 {
+  margin-top: 0 !important;
+}
+
+.m-t-15 {
+  margin-top: 15px !important;
+}
+
+
+.m-bt-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.m-t-50 {
+  margin-top: 50px !important;
+}
+
+.m-t--100 {
+  margin-top: -100px !important;
+}
+
+.m-t--150 {
+  margin-top: -150px !important;
+}
+
+.p-t-0 {
+  padding-top: 0 !important;
+}
+
+.p-b-0 {
+  padding-bottom: 0 !important;
+}
+
+.p-tb-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.p-b-10 {
+  padding-bottom: 10px !important;
+}
+
+.p-b-20 {
+  padding-bottom: 20px !important;
+}
+
+.p-b-30 {
+  padding-bottom: 30px !important;
+}
+
+.p-b-130 {
+  padding-bottom: 130px !important;
+}
+
+.p-b-30 {
+  padding-bottom: 30px !important;
+}
+
+.p-b-80 {
+  padding-bottom: 80px !important;
+}
+
+.p-t-50 {
+  padding-top: 50px !important;
+}
+
+.p-t-80 {
+  padding-top: 80px !important;
+}
+
+.p-t-130 {
+  padding-top: 130px !important;
+}
+
+.align-center {
+  align-content: center !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+}
+
+.width-55-per {
+  width: 55%;
+  margin: 0 auto;
+}
+
+.content {
+  @include content();
+
+  &.width1500 {
+    max-width: 1500px;
+  }
+
+  &.width1700 {
+    max-width: 1700px;
+  }
+
+  &.width1800 {
+    max-width: 1800px;
+  }
+}
+
+.content_1500 {
+  @include content();
+
+  max-width: 1500px;
+}
+
+.content_1700 {
+  @include content();
+
+  max-width: 1700px;
+}
+
+.content_1800 {
+  @include content();
+
+  max-width: 1800px;
+}
+
+.flexbox {
+  @include flexbox(flex-start, stretch, space-between);
+}
+
+.vFlexbox {
+  @include flexbox(center, center, center, column);
+}
+
+.right-align {
+  text-align: right !important;
+}
+
+.flex-center {
+  align-items: center;
+}
+
+.left-align {
+  text-align: left !important;
+}
+
+.justify-align {
+  text-align: justify !important;
+}
+
+.noPadding {
+  padding: 0 !important;
+}
+
+.noMargin {
+   @extend %no-margin;
+ }
+
+.fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.relative {
+  position: relative;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.deafultcase {
+  text-transform: inherit !important;
+}
+
+#toTop {
+  position: fixed;
+  display: none;
+
+  bottom: 40px;
+  right: 30px;
+
+  width: 80px;
+  height: 70px;
+  background-color: rgba($white-color, .3);
+
+  cursor: pointer;
+  z-index: 999;
+
+  @include transition();
+
+  @media (max-width: 680px) {
+    width: 60px;
+    height: 50px;
+  }
+
+  &::before {
+    @include transform(translate(-50%, -50%));
+    @include transition();
+
+    position: absolute;
+    content: '\005E';
+
+    top: 95%;
+    left: 50%;
+
+    color: rgba($maroon-color, .5);
+    font-size: calc(#{$max-size} + 1px);
+    font-weight: 100;
+  }
+
+  &:hover {
+    @include animation(top);
+
+    background-color: rgba($white-color, .8);
+
+    &::before {
+      color: $maroon-color;
+    }
+  }
+}
+
+button,
+input.submit {
+  @include button();
+
+  &::before {
+    background: none;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+p.submit {
+  &.large {
+    font-size: calc(#{$middle-size} + 10px);
+  }
+
+  &.normal_weight {
+    font-weight: 400;
+
+    a {
+      font-weight: 400;
+
+      strong {
+        font-weight: 700;
+      }
+    }
+  }
+
+  a {
+    @include button();
+
+    font-size: calc(#{$middle-size} + 10px);
+
+    padding: 23px 40px 10px;
+
+    &::before {
+      background: none;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+ul {
+  @include list();
+}
+
+input,
+textarea {
+  @include input();
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+.tooltip {
+  position: relative;
+  cursor: help;
+
+  @media only screen and (max-width: 560px), (orientation: portrait) {
+    text-align: center;
+  }
+
+  &::after {
+    @include transition();
+    @include shadow(0 1px 2px rgba($black-color, .3));
+
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: rgba($black-color, .8);
+    content: attr(data-tooltip);
+
+    width: 200px;
+
+    font-size: 14px;
+    font-weight: 300;
+    color: $white-color;
+    text-align: center;
+
+    padding: 6px 10px 8px;
+    margin-top: 5px;
+
+    opacity: 0;
+    visibility: hidden;
+    z-index: 9;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1; /* Показываем его */
+      visibility: visible;
+    }
+  }
+}
+
+a {
+  .tooltip {
+    cursor: pointer;
+  }
+}

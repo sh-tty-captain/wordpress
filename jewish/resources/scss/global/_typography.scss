@@ -1,0 +1,88 @@
+body {
+  font-family: $deafult-font;
+  font-size: 100%;
+  color: $gray-color;
+}
+
+h1,
+h2 {
+  font-family: $header-font;
+  font-size: $max-size;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: calc(#{$middle-size} + 11px);
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: calc(#{$middle-size} + 5px);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: $normal-size;
+  text-transform: uppercase;
+}
+
+p,
+li {
+  @extend %deafult-font;
+
+  font-size: $normal-size;
+  line-height: 1.3;
+
+  margin: 10px 0;
+}
+
+a {
+  position: relative;
+
+  color: $maroon-color;
+  text-decoration: none;
+
+  border-bottom: none;
+
+  @include transition();
+
+  &::before,
+  &::after {
+    @include transition(width 1s ease-in-out);
+
+    position: absolute;
+    content: '';
+
+    bottom: 1px;
+
+    width: 51%;
+    height: 1px;
+    background: $maroon-color;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+
+  &:hover {
+    color: $black-color;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      width: 0;
+    }
+  }
+
+  &:focus,
+  &:visited {
+    color: $maroon-color;
+  }
+}

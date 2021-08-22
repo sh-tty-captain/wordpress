@@ -1,0 +1,22 @@
+@import "variables";
+
+@import "global/fonts";
+
+@import "normalize";
+@import "mixins";
+@import "rule";
+
+@import "global/typography";
+
+@import "blocks/head";
+@import "blocks/footer";
+@import "blocks/navigation";
+@import "blocks/wordpress";
+
+@import "blocks/main";
+@import "blocks/inner";
+
+@import "blocks/pages/about";
+@import "blocks/pages/contacts";
+
+@import "media";
