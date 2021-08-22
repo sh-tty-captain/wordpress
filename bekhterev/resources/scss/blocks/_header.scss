@@ -1,0 +1,205 @@
+.header {
+  @include transition();
+
+  &__top {
+    background: darken($gray-color, 3%);
+    padding: 5px 0;
+
+    form {
+      position: relative;
+      width: 70%;
+
+      input {
+        height: 30px;
+        background: transparent;
+
+        color: $gray_dark-color;
+        font-family: $deafult-font;
+        font-weight: 300 !important;
+
+        border: none !important;
+
+        padding-left: 35px;
+        margin-bottom: 0;
+      }
+
+      button {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 20px;
+        height: 20px;
+
+        background: transparent;
+
+        margin-top: 5px;
+
+        cursor: pointer;
+
+        &::before {
+          @include background-svg(search);
+          @include transform(none);
+
+          position: absolute;
+          content: '';
+
+          top: 0 !important;
+          left: 5px;
+
+          width: 20px;
+          height: 20px;
+
+          background-color: transparent;
+        }
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+
+    .language {
+      align-content: center;
+      color: $gray_dark-color;
+
+      a {
+        color: $gray_dark-color;
+        font-weight: 300;
+        line-height: 23px;
+
+        border-bottom: none;
+
+        &.active {
+          color: $link-color;
+          font-weight: 400;
+
+          pointer-events: none;
+        }
+
+        &:hover {
+          color: $link-color;
+
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  &__info {
+    height: 160px;
+    background: $gray-color;
+
+    @media only screen and (max-width: 767px), (orientation: portrait) {
+      height: 200px;
+    }
+
+    @media only screen and (max-width: 600px), (orientation: portrait) {
+      height: 250px;
+    }
+
+    p {
+      @include p-ico();
+    }
+
+    .logo {
+      max-width: 850px;
+
+      @media only screen and (max-width: 910px), (orientation: portrait) {
+        width: 60%;
+      }
+
+      @media only screen and (max-width: 767px), (orientation: portrait) {
+        width: 100%;
+      }
+
+      h3 {
+        font-size: 26px;
+      }
+
+      a {
+        border-bottom: none;
+
+        &:hover {
+          border-bottom: none;
+        }
+
+        img {
+          width: 70px;
+        }
+      }
+
+      .info {
+        @extend %border-box;
+        padding-left: 25px;
+
+        p {
+          opacity: .6;
+        }
+      }
+    }
+
+    .contacts {
+      width: auto;
+
+      text-align: right;
+
+      @media only screen and (max-width: 767px), (orientation: portrait) {
+        flex-direction: row;
+        justify-content: space-between;
+
+        width: 100%;
+
+        margin-top: 15px;
+      }
+
+      @media only screen and (max-width: 600px), (orientation: portrait) {
+        justify-content: flex-start;
+        text-align: left;
+
+        margin-top: 20px;
+      }
+
+      p {
+        margin: 2px 0;
+        padding-left: 32px;
+
+        &.phone,
+        &.time {
+          @media only screen and (max-width: 600px), (orientation: portrait) {
+            width: 50%;
+          }
+        }
+
+        &.email {
+          @media only screen and (max-width: 600px), (orientation: portrait) {
+            width: 100%;
+          }
+        }
+      }
+
+      a {
+        color: $gray_dark-color;
+      }
+    }
+  }
+}
+
+main {
+  &.clinic.inner-pages {
+    #head {
+      h1 {
+        padding-top: 40px;
+      }
+    }
+  }
+
+  &#primary.inner-pages {
+    #head {
+      h1 {
+        padding-top: 45px;
+      }
+    }
+  }
+}

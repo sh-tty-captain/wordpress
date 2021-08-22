@@ -1,0 +1,168 @@
+.advantages {
+  @include colorBlock($gray-color, 34px, 35px 35px 40px 25px, 25px, 50%, darken($gray-color, 2%));
+
+  padding-top: 50px;
+
+  &__block {
+    @media only screen and (max-width: 1024px), (orientation: portrait) {
+      width: 100%;
+    }
+
+    &:nth-child(3) {
+      background: lighten($gray-color, 1%);
+    }
+  }
+}
+
+.centers {
+  @include colorBlock($gray-color, auto, 35px 35px 40px 25px, 25px, 33.33333%);
+
+  padding-top: 40px;
+
+  a {
+    color: $gray_dark-color;
+    border-bottom: none;
+  }
+
+  &__block {
+    @include transition();
+
+    cursor: pointer;
+
+    @media only screen and (max-width: 1024px), (orientation: portrait) {
+      width: 50%;
+
+      br {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 680px), (orientation: portrait) {
+      width: 100%;
+    }
+
+    &:nth-child(3) {
+      @media only screen and (max-width: 1024px), (orientation: portrait) {
+        width: 100%;
+      }
+    }
+
+    &:hover {
+      background: $button-color;
+
+    }
+
+    a {
+      color: $gray_dark-color;
+
+      border-bottom: none;
+
+      &:hover {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.services {
+  @include colorBlock($blue_light-color, 60px, 65px 30px, 20px, 33.33333%, lighten($blue_light-color, 1%), lighten($blue_light-color, 2%));
+
+  &__block {
+    @include transition();
+
+    @media only screen and (max-width: 1024px), (orientation: portrait) {
+      width: 50%;
+
+      br {
+        display: none;
+      }
+    }
+
+    @media only screen and (max-width: 680px), (orientation: portrait) {
+      justify-content: flex-start;
+      padding: 30px;
+    }
+
+    @media only screen and (max-width: 680px), (orientation: portrait) {
+      width: 100%;
+    }
+
+    &:nth-child(1) {
+      @media only screen and (max-width: 680px), (orientation: portrait) {
+        background: $blue_light-color;
+      }
+    }
+
+    &:nth-child(2) {
+      @media only screen and (max-width: 680px), (orientation: portrait) {
+        background: lighten($blue_light-color, 2%);
+      }
+    }
+
+    &:nth-child(3) {
+      @media only screen and (max-width: 1024px), (orientation: portrait) {
+        background: lighten($blue_light-color, 2%);
+      }
+
+      @media only screen and (max-width: 680px), (orientation: portrait) {
+        background: $blue_light-color;
+      }
+    }
+
+    &:nth-child(4) {
+      @media only screen and (max-width: 680px), (orientation: portrait) {
+        background: lighten($blue_light-color, 2%);
+      }
+    }
+
+    &:nth-child(5) {
+      @media only screen and (max-width: 1024px), (orientation: portrait) {
+        background: lighten($blue_light-color, 1%);
+      }
+
+      @media only screen and (max-width: 680px), (orientation: portrait) {
+        background: $blue_light-color;
+      }
+    }
+
+    &:nth-child(6) {
+      @media only screen and (max-width: 1024px), (orientation: portrait) {
+        background: lighten($blue_light-color, 2%);
+      }
+    }
+
+    cursor: pointer;
+
+    svg {
+      width: 60px;
+    }
+
+    &:hover {
+      background: darken(rgba($green-color, .8), 20%);
+
+      p,
+      a {
+        color: $white-color;
+      }
+
+      path {
+        fill: $white-color;
+      }
+    }
+
+    p,
+    a {
+      @include transition(all 0s ease-out, all 0s ease-out, all 0s ease-out);
+    }
+
+    a {
+      color: $gray_dark-color;
+
+      border-bottom: none;
+
+      &:hover {
+        border-bottom: none;
+      }
+    }
+  }
+}

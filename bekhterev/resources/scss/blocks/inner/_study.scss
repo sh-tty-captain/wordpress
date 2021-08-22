@@ -1,0 +1,288 @@
+#slider.study-slider {
+  .owl-item {
+    &:nth-child(3) {
+      .slider__block {
+        @include background-png(slider_7, center);
+      }
+    }
+
+    &:nth-child(4) {
+      .slider__block {
+        @include background-png(slider_8, center);
+      }
+    }
+
+    &:nth-child(5) {
+      .slider__block {
+        @include background-png(slider_9, center);
+      }
+    }
+  }
+
+  .slider {
+    &__block {
+      padding: 90px 0 140px;
+
+      button {
+        @include border-radius(25px);
+
+        background: $green-color;
+        height: 45px;
+
+        color: darken($green-color, 30%);
+        font-size: 16px;
+
+        &::before {
+          display: none;
+        }
+
+        &::after {
+          @include transform(rotate(0deg));
+
+          content: '\2192';
+
+          top: 10px;
+
+          width: auto;
+          height: auto;
+          background: none;
+
+          color: darken($green-color, 30%);
+        }
+
+        &:hover {
+          background: $button-color;
+          color: darken($button-color, 30%);
+
+          &::after {
+            color: darken($button-color, 30%);
+          }
+        }
+      }
+
+      .info {
+        color: $black-color;
+
+        p {
+          font-size: 16px;
+        }
+      }
+
+      &::after {
+        background: rgba(lighten($green-color, 35%), .9);
+      }
+
+      @media only screen and (max-width: 980px), (orientation: portrait) {
+        padding: 40px;
+      }
+
+      @media only screen and (max-width: 480px), (orientation: portrait) {
+        padding: 30px 0;
+      }
+    }
+
+    .owl-dots {
+      bottom: 60px;
+
+      button {
+        @include border-radius(4px);
+
+        background: rgba($white-color, .8);
+
+        &.active {
+          background: rgba($black-color, .8);
+        }
+      }
+    }
+  }
+}
+
+.informer {
+  @include border-radius(10px);
+  @extend %border-box;
+
+  background: lighten($gray-color, 2%);
+
+  padding: 20px !important;
+  margin-top: 20px;
+
+  ul {
+    margin-top: 0;
+  }
+}
+
+#study {
+  @include background-png(study, center);
+
+  height: 200px;
+
+  .flexbox {
+    align-content: center;
+    justify-content: flex-end;
+  }
+
+  h1 {
+    text-align: right;
+  }
+}
+
+#commission {
+  h1 {
+    position: relative;
+    width: 100%;
+
+    &::after {
+      @include border-radius(9px);
+
+      position: absolute;
+      content: '';
+
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 18px;
+
+      background: rgba(darken($green-color, 10%), .1);
+
+      margin: auto;
+    }
+  }
+
+  p {
+    &.accent {
+      font-weight: 700;
+      color: darken($green-color, 15%);
+      text-transform: uppercase;
+    }
+  }
+
+  form {
+    width: 100%;
+    max-width: 100%;
+
+    button {
+      @include button-small($green-color);
+      @include border-radius(20px);
+
+      width: 100%;
+      max-width: 100%;
+
+      height: 40px;
+
+      color: darken($green-color, 30%);
+
+      &:hover {
+        background: $button-color;
+        color: darken($button-color, 30%);
+
+        &::after {
+          background: none;
+          color: darken($button-color, 30%);
+        }
+      }
+
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        @include transform(rotate(0deg));
+
+        content: '\2192';
+
+        top: 8px;
+        right: 30px;
+
+        width: auto;
+        height: auto;
+        background: none;
+
+        color: darken($green-color, 30%);
+      }
+    }
+  }
+}
+
+#faq {
+  padding-bottom: 20px;
+
+  h1 {
+    position: relative;
+    width: 100%;
+
+    margin-bottom: 15px;
+
+    &::after {
+      @include border-radius(9px);
+
+      position: absolute;
+      content: '';
+
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 18px;
+
+      background: rgba(darken($green-color, 10%), .1);
+
+      margin: auto;
+    }
+  }
+
+  .spoiler {
+    margin-bottom: 8px;
+
+    &__title {
+      @include border-radius(30px);
+      @extend %border-box;
+      @include transition();
+
+      position: relative;
+
+      background: lighten($gray-color, 2%);
+
+      cursor: pointer;
+      padding: 15px 15px 15px 40px;
+
+      &:hover {
+        background: lighten($green-color, 20%);
+      }
+
+      &.active {
+        @include border-radius(20px 20px 0 0);
+
+        background: lighten($green-color, 20%);
+        color: darken($green-color, 30%);
+
+        &::before {
+          content: '–';
+        }
+      }
+
+      &::before {
+        @include transform(translateY(-50%));
+        position: absolute;
+        content: '+';
+
+        top: calc(50% + .5px);
+        left: 20px;
+        bottom: 0;
+
+        color: darken($green-color, 30%);
+
+        margin: auto;
+      }
+    }
+
+    &__content {
+      @include border-radius(0 0 20px 20px);
+      @extend %border-box;
+
+      background: lighten($gray-color, 2%);
+
+      padding: 5px 15px 15px;
+    }
+  }
+}

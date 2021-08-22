@@ -1,0 +1,90 @@
+#map,
+.map-section {
+  position: relative;
+
+  height: auto;
+  color: $gray_dark-color;
+
+  .map {
+    width: 100%;
+  }
+
+  .contacts {
+    @extend %verticalAlign;
+
+    right: 0;
+    left: 0;
+
+    height: auto;
+
+    margin: auto;
+
+    pointer-events: none;
+
+    &__background {
+      @include background-png(about_background, center);
+
+      max-width: 465px;
+          width: 100%;
+      height: 260px;
+
+      pointer-events: all;
+
+      @media only screen and (max-width: 860px), (orientation: portrait) {
+        max-width: 350px;
+        height: 160px;
+      }
+    }
+
+    &__info {
+      @extend %border-box;
+
+      max-width: 465px;
+      background: $white-color;
+
+      padding: 30px 30px 50px;
+
+      pointer-events: all;
+
+      @media only screen and (max-width: 860px), (orientation: portrait) {
+        max-width: 350px;
+        padding: 25px 25px 35px;
+      }
+
+      h3 {
+        margin-top: 0 !important;
+      }
+
+      button,
+      a.button {
+        @include button-small($gray-color);
+
+        display: block;
+        max-width: 200px;
+        height: 45px;
+        margin-top: 15px;
+
+        &::before {
+          top: -2px !important;
+        }
+      }
+
+      p {
+        @include p-ico();
+
+        padding-left: 0;
+
+        &.more {
+          padding-left: 0 !important;
+        }
+
+        &.location,
+        &.web,
+        &.time,
+        &.phone {
+          padding-left: 25px;
+        }
+      }
+    }
+  }
+}

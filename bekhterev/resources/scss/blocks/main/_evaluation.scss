@@ -1,0 +1,33 @@
+#evaluation {
+  @extend %border-box;
+
+  background: $gray-color;
+
+  padding: 35px 0;
+
+  .evaluation {
+    &__logo {
+      width: 8%;
+    }
+
+    &__description {
+      width: 89%;
+
+      h2 {
+        max-width: 515px;
+      }
+
+      form {
+        width: 300px;
+      }
+
+      button {
+        @include button-small();
+
+        @media only screen and (max-width: 1024px), (orientation: portrait) {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}

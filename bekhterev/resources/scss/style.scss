@@ -1,0 +1,32 @@
+@import "variables";
+
+@import "global/fonts";
+
+@import "normalize";
+@import "mixins";
+@import "rule";
+
+@import "global/typography";
+
+@import "blocks/header";
+@import "blocks/footer";
+@import "blocks/nav";
+
+
+@import "blocks/main/slider";
+@import "blocks/main/info-blocks";
+@import "blocks/main/about";
+@import "blocks/main/evaluation";
+@import "blocks/main/psychiatry";
+@import "blocks/main/contacts";
+@import "blocks/main/news";
+@import "blocks/main/wordpress";
+
+@import "blocks/inner/head";
+@import "blocks/inner/inner";
+@import "blocks/inner/contacts";
+@import "blocks/inner/scientific";
+@import "blocks/inner/study";
+@import "blocks/inner/about";
+
+@import "media";

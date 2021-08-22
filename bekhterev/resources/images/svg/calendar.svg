@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="22.365" viewBox="0 0 25 22.365">
+  <g id="calendar" transform="translate(-3.7 -60.5)">
+    <g id="Group_29" data-name="Group 29" transform="translate(3.7 60.5)">
+      <path id="Path_87" data-name="Path 87" d="M28.67,60.545H25.129v.9a2.677,2.677,0,1,1-5.355,0v-.9H12.626v.9a2.68,2.68,0,0,1-5.36,0v-.9L3.7,60.5V82.865H26.917l1.783,0ZM26.912,81.082H5.483V66.8H26.912V81.082Z" transform="translate(-3.7 -60.5)" fill="#fff"/>
+      <rect id="Rectangle_1" data-name="Rectangle 1" width="3.145" height="2.774" transform="translate(8.798 8.092)" fill="#fff"/>
+      <rect id="Rectangle_2" data-name="Rectangle 2" width="3.151" height="2.774" transform="translate(13.281 8.092)" fill="#fff"/>
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="3.145" height="2.774" transform="translate(17.439 8.092)" fill="#fff"/>
+      <rect id="Rectangle_4" data-name="Rectangle 4" width="3.145" height="2.774" transform="translate(8.798 12.158)" fill="#fff"/>
+      <rect id="Rectangle_5" data-name="Rectangle 5" width="3.151" height="2.774" transform="translate(13.281 12.158)" fill="#fff"/>
+      <rect id="Rectangle_6" data-name="Rectangle 6" width="3.145" height="2.774" transform="translate(17.439 12.158)" fill="#fff"/>
+      <rect id="Rectangle_7" data-name="Rectangle 7" width="3.145" height="2.774" transform="translate(8.798 15.859)" fill="#fff"/>
+      <rect id="Rectangle_8" data-name="Rectangle 8" width="3.145" height="2.774" transform="translate(4.396 12.158)" fill="#fff"/>
+      <rect id="Rectangle_9" data-name="Rectangle 9" width="3.145" height="2.774" transform="translate(4.396 15.859)" fill="#fff"/>
+      <rect id="Rectangle_10" data-name="Rectangle 10" width="3.151" height="2.774" transform="translate(13.281 15.859)" fill="#fff"/>
+      <rect id="Rectangle_11" data-name="Rectangle 11" width="3.145" height="2.774" transform="translate(17.439 15.859)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

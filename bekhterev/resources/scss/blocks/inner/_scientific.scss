@@ -1,0 +1,724 @@
+header.scientific-header {
+  padding: 0 50px;
+
+  .eye {
+    order: 2;
+  }
+
+  nav.scientific-nav {
+    order: 1;
+    width: 90%;
+  }
+}
+
+.navigation.green a {
+  color: $black-color;
+
+  &:hover {
+    color: $green-color;
+  }
+}
+
+.green a {
+  color: darken($green-color, 15%);
+
+  &:hover {
+    color: $link-color;
+
+    border-bottom: none;
+  }
+}
+
+#slider.scientific-slider {
+  .owl-item {
+    &:nth-child(3) {
+      .slider__block {
+        @include background-png(slider_10, center);
+      }
+    }
+
+    &:nth-child(4) {
+      .slider__block {
+        @include background-png(slider_4, center);
+      }
+    }
+
+    &:nth-child(5) {
+      .slider__block {
+        @include background-png(slider_5, center);
+      }
+    }
+
+    &:nth-child(6   ) {
+      .slider__block {
+        @include background-png(slider_6, center);
+      }
+    }
+  }
+
+  .slider {
+    &__block {
+      padding: 90px 0 140px;
+
+      button {
+        @include border-radius(25px);
+
+        background: $green-color;
+        height: 45px;
+
+        color: darken($green-color, 30%);
+        font-size: 16px;
+
+        &::before {
+          display: none;
+        }
+
+        &::after {
+          @include transform(rotate(0deg));
+
+          content: '\2192';
+
+          top: 10px;
+
+          width: auto;
+          height: auto;
+          background: none;
+          background-color: transparent !important;
+
+          color: darken($green-color, 30%);
+        }
+
+        &:hover {
+          background: $blue_light-color;
+          color: rgba($black-color, .4);
+
+          &::after {
+            color: rgba($black-color, .4);
+          }
+        }
+      }
+
+      .info {
+        color: $black-color;
+
+        p {
+          font-size: 16px;
+        }
+      }
+
+      &::after {
+        background: rgba($blue_light-color, .7);
+      }
+
+      @media only screen and (max-width: 980px), (orientation: portrait) {
+        padding: 40px;
+      }
+
+      @media only screen and (max-width: 480px), (orientation: portrait) {
+        padding: 30px 0;
+      }
+    }
+
+    .owl-dots {
+      bottom: 60px;
+
+      button {
+        @include border-radius(4px);
+
+        background: rgba($white-color, .8);
+
+        &.active {
+          background: rgba($black-color, .8);
+        }
+      }
+    }
+  }
+}
+
+#scientificCenter {
+  padding-top: 25px;
+
+  &.tasks {
+    padding-top: 0;
+    padding-bottom: 50px;
+  }
+
+  &.second {
+    background: rgba($blue_light-color, .3);
+
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  &.green {
+    .informer {
+      &.full {
+        ul {
+          &:first-child,
+          &:last-child {
+            width: 100%;
+          }
+        }
+      }
+      ul {
+        &:first-child {
+          width: 60%;
+        }
+
+        &:last-child {
+          width: 40%;
+        }
+      }
+    }
+
+    h1 {
+      &::after {
+        background: rgba(darken($green-color, 10%), .1);
+      }
+    }
+  }
+
+  h1 {
+    position: relative;
+    margin-bottom: 25px;
+
+    &::after {
+      @include border-radius(9px);
+
+      position: absolute;
+      content: '';
+
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 18px;
+
+      background: rgba(darken($blue-color, 10%), .1);
+
+      margin: auto;
+    }
+  }
+
+  p {
+    font-weight: 400;
+  }
+
+  ul {
+    margin-top: 20px;
+
+    @include ul-triangle();
+
+    li {
+      &::before {
+        color: $black-color;
+      }
+    }
+  }
+}
+
+.scientific-section {
+  &.green {
+    padding-top: 0;
+
+    .directions {
+      &__block {
+        @include border-radius(30px);
+        @include transition();
+
+        background: $green-color;
+        height: 60px;
+
+        cursor: pointer;
+
+        margin-bottom: 10px;
+
+        .description {
+          width: 100%;
+          text-align: center;
+        }
+
+        a {
+          color: $white-color;
+          font-weight: 700;
+          text-transform: uppercase;
+
+          border-bottom: none;
+        }
+
+        &:nth-child(4) {
+          @include border-radius(30px);
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          @include border-radius(30px);
+
+          background: lighten($green-color, 12%);
+
+          &:hover {
+            background: lighten($button-color, 12%);
+          }
+        }
+
+        &:hover {
+          background: $button-color;
+        }
+      }
+    }
+
+    h1 {
+      color: rgba(darken($green-color, 10%), .2);
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  padding: 50px 0;
+
+  h1 {
+    text-transform: uppercase;
+    color: rgba(darken($blue-color, 10%), .2);
+    text-align: center;
+
+    margin-bottom: 25px;
+  }
+
+  .directions {
+    &__block {
+      &.flexbox {
+        align-content: center;
+      }
+
+      @extend %border-box;
+      @include border-radius(0 50px 0 50px);
+
+      width: 49.5%;
+      height: 150px;
+
+      background: $blue_light-color;
+
+      padding: 15px 25px;
+      margin-bottom: 12px;
+
+      &:nth-child(1),
+      &:nth-child(3){
+        text-align: right;
+      }
+
+      &:nth-child(2) {
+        @include border-radius(50px 0 50px 0);
+
+        background: rgba($blue_light-color, .5);
+      }
+
+      &:nth-child(3) {
+        @include border-radius(50px 0 50px 0);
+
+        background: rgba($blue_light-color, .5);
+      }
+
+      &:nth-child(4) {
+        @include border-radius(0 50px 0 50px);
+      }
+
+      p {
+        @extend %no-margin;
+      }
+    }
+  }
+}
+
+#about.scientific-functions {
+  &.green {
+    @include background-overlay-image(background_funcions, 250px);
+
+    &::after {
+      background: rgba(lighten($green-color, 35%), .9);
+    }
+
+    .about__list {
+      margin-top: 0;
+    }
+
+    li {
+      a {
+        color: $green-color;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        border-bottom: 1px solid rgba($gray_dark-color, .2);
+
+        &:hover {
+          color: $link-color;
+
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  @include background-overlay-image(background_funcions, 550px);
+
+  color: $black-color;
+
+  li {
+    &::before {
+      color: $black-color !important;
+    }
+  }
+
+  &::after {
+    background: rgba($blue_light-color, .9);
+  }
+}
+
+#psychiatry.scientific-subsection {
+  &.green {
+    padding-top: 5px;
+
+    .psychiatry__block {
+      background: lighten($gray-color, 2%);
+
+      &:nth-child(1) {
+        @include border-radius(10px 0 0 10px);
+
+        .image {
+          @include background-svg(license);
+
+          width: 42px;
+          height: 35px;
+        }
+      }
+
+      &:nth-child(2) {
+        .image {
+          @include background-svg(check-box);
+
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      &:nth-child(3) {
+        .image {
+          @include background-svg(documents);
+
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      &:nth-child(4) {
+        @include border-radius(0 10px 10px 0);
+
+        .image {
+          @include background-svg(scroll);
+        }
+      }
+
+      &:hover {
+        background: lighten($green-color, 30%);
+      }
+    }
+  }
+
+  background: $white-color;
+
+  margin-top: 0;
+
+  .psychiatry__block {
+    align-content: center;
+    background: $gray-color;
+    border: none;
+
+    .image {
+      @include transition();
+
+      width: 50px;
+      height: 50px;
+
+      margin: auto;
+
+      opacity: .1;
+    }
+
+    &:hover {
+      border: none;
+      background: $blue_light-color;
+    }
+
+    &:nth-child(1) {
+      @include border-radius(0 0 0 50px);
+    }
+
+    &:nth-child(4) {
+      @include border-radius(0 0 50px 0);
+    }
+  }
+}
+
+#news.scientific-news {
+  h1 {
+    position: relative;
+    width: 60%;
+
+    &::after {
+      @include border-radius(9px);
+
+      position: absolute;
+      content: '';
+
+      bottom: 0;
+      left: 0;
+
+      width: 100%;
+      height: 18px;
+
+      background: rgba(darken($green-color, 10%), .1);
+
+      margin: auto;
+    }
+  }
+
+  background: none;
+
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 30px;
+
+  a {
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  .flexbox.green {
+    align-items: center;
+    margin-bottom: 15px;
+
+    form {
+      width: 250px;
+
+      button {
+        &:hover {
+          background: $button-color;
+          color: darken($button-color, 30%);
+
+          &::after {
+            color: darken($button-color, 30%);
+          }
+        }
+      }
+    }
+  }
+
+  form {
+    text-align: center;
+
+    button {
+      @include border-radius(25px);
+
+      background: $green-color;
+      height: 45px;
+
+      color: darken($green-color, 30%);
+      font-size: 16px;
+
+      margin: 15px auto 0;
+
+      &::before {
+        display: none;
+      }
+
+      &::after {
+        @include transform(rotate(0deg));
+
+        content: '\2192';
+
+        top: 10px;
+
+        width: auto;
+        height: auto;
+        background: none;
+
+        color: darken($green-color, 30%);
+      }
+
+      &:hover {
+        background: $blue_light-color;
+        color: rgba($black-color, .4);
+
+        &::after {
+          color: rgba($black-color, .4);
+        }
+      }
+    }
+  }
+
+  .green {
+    .news {
+      &:hover {
+        a {
+          color: $link-color;
+        }
+      }
+
+      &__image {
+        &::after {
+          background: rgba(lighten($green-color, 35%), .7) !important;
+        }
+      }
+    }
+  }
+
+  .news {
+    @include flexbox(stretch, flex-start, space-between);
+
+    max-height: 300px;
+    height: 100vh;
+
+    background: lighten($gray-color, 2%);
+
+    .news__image {
+      position: relative;
+      height: 120px;
+      overflow: hidden;
+
+      &::after {
+        @include transition();
+        @extend %position-absolute;
+
+        background: rgba($blue_light-color, .7);
+
+        opacity: 0;
+      }
+    }
+
+    .text {
+      @extend %border-box;
+
+      height: 134px;
+      padding: 10px;
+
+      p {
+        margin-top: 0;
+      }
+    }
+
+    .date {
+      @extend %border-box;
+
+      width: 100%;
+
+      text-align: right;
+      color: rgba($black-color, .4);
+
+      padding: 10px;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .news__image {
+        &::after {
+          opacity: 1;
+        }
+      }
+
+      a {
+        color: $blue-color;
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+#map.scientific-contact {
+  button {
+    @include border-radius(25px);
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      @include transform(rotate(0deg));
+
+      content: '\2192';
+
+      top: 10px;
+      right: 25px;
+
+      width: auto;
+      height: auto;
+      background: none !important;
+    }
+  }
+}
+
+
+
+
+#journal {
+  @include background-overlay-image(journal, 200px);
+
+  &::after {
+    background: rgba($blue_light-color, 0);
+  }
+
+  height: 200px;
+
+  .flexbox {
+    align-content: center;
+    justify-content: flex-end;
+
+    form {
+      text-align: center;
+      width: 60%;
+
+      button {
+        @include border-radius(40px);
+
+        background: $green-color;
+        height: 80px;
+        max-width: 88%;
+
+        color: darken($green-color, 30%);
+        font-size: 16px;
+
+        margin: 15px auto 0;
+
+        &::before {
+          display: none;
+        }
+
+        &::after {
+          @include transform(rotate(0deg));
+
+          content: '\2192';
+
+          top: 40px;
+
+          width: auto;
+          height: auto;
+          background: none;
+          background-color: transparent !important;
+
+          color: darken($green-color, 30%);
+        }
+
+        &:hover {
+          background: $white-color;
+          color: rgba($black-color, .4);
+
+          &::after {
+            color: rgba($black-color, .4);
+          }
+        }
+      }
+    }
+  }
+}

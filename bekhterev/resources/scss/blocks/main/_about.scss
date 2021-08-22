@@ -1,0 +1,77 @@
+#about,
+.about-section {
+  @include background-overlay-image(background_about, auto);
+
+  &.about-background {
+    @include background-overlay-image(background_about, auto);
+  }
+
+  &.diagnostic-background {
+    @include background-overlay-image(background_diagnostic, auto);
+
+  }
+
+  @media only screen and (max-width: 767px), (orientation: portrait) {
+    margin-top: 20px;
+  }
+
+  .about {
+    &__list {
+      margin-top: 20px;
+
+      .left,
+      .right {
+        @include ul-triangle();
+
+        width: 48%;
+
+        a {
+          color: $white-color;
+          border-bottom: 1px solid rgba($white-color, .2);
+
+          &:hover {
+            color: $green-color;
+            border-bottom: none;
+          }
+        }
+
+        @media only screen and (max-width: 680px), (orientation: portrait) {
+          width: 100%;
+        }
+
+        li {
+          p {
+            &:first-child {
+              margin: 0;
+            }
+
+            &:last-child {
+              margin-top: 3px;
+            }
+          }
+        }
+      }
+
+      .right {
+        @media only screen and (max-width: 680px), (orientation: portrait) {
+          padding-top: 12px;
+        }
+      }
+    }
+
+    &__description {
+      @extend %border-box;
+
+      color: rgba($gray_dark-color, .6);
+      background: $white-color;
+
+      padding: 25px 30px 30px;
+
+      margin-top: 40px;
+
+      @media only screen and (max-width: 680px), (orientation: portrait) {
+        margin-top: 30px;
+      }
+    }
+  }
+}

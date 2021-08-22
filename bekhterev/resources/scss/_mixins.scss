@@ -1,0 +1,794 @@
+// Общие
+
+%position-absolute {
+  position: absolute;
+  content: '';
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+%border-box {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+       -o-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+%font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+}
+
+%backface-visibility {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+%no-margin {
+  margin: 0;
+}
+
+%verticalAlign {
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+%deafult-font {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  margin: .5em 0;
+}
+
+@mixin border($width, $color) {
+  border: $width solid $color;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius !important;
+     -moz-border-radius: $radius !important;
+      -ms-border-radius: $radius !important;
+       -o-border-radius: $radius !important;
+          border-radius: $radius !important;
+}
+
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+     -moz-transform: $transform;
+      -ms-transform: $transform;
+       -o-transform: $transform;
+          transform: $transform;
+}
+
+@mixin transform-origin($transform-origin) {
+  -webkit-transform-origin: $transform-origin;
+     -moz-transform-origin: $transform-origin;
+      -ms-transform-origin: $transform-origin;
+       -o-transform-origin: $transform-origin;
+          transform-origin: $transform-origin;
+}
+
+// Основные блоки; скелет страницы
+
+%margin-stable {
+  margin: {
+    left: 15px;
+    right: 15px;
+  }
+}
+
+@mixin content {
+  position: relative;
+  max-width: 1180px;
+      width: calc(100% - 35px);
+  height: 100%;
+
+  margin: 0 auto;
+  margin-right: auto !important;
+
+  z-index: 2;
+
+  &.inner {
+    background: $white-color;
+    padding: 35px 40px;
+    margin-top: -100px;
+  }
+
+  @media only screen and (max-width: 1200px), (orientation: portrait) {
+    max-width: none;
+    width: calc(100% - 100px);
+  }
+
+  @media only screen and (max-width: 680px), (orientation: portrait) {
+    width: calc(100% - 60px);
+  }
+
+  @media only screen and (max-width: 520px), (orientation: portrait) {
+    width: calc(100% - 30px);
+  }
+}
+
+@mixin flexbox($align-content, $align-items, $justify-content, $flex-direction:row, $wrap:wrap) {
+  -js-display: flex;
+  display: flex;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+  align-content: $align-content;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+      -ms-box-shadow: $shadow;
+       -o-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+@mixin nav-arrow() {
+  @extend %position-absolute;
+  @extend %backface-visibility;
+
+  display: inline-block;
+
+  width: 10px;
+  height: 1px;
+}
+
+@mixin colorBlock($color, $img-width, $padding, $padding-left, $width, $intensity-3:lighten($color, 2%), $intensity-2:darken($color, 3%), $intensity-1:lighten($color, 1%)) {
+  &__block {
+    @extend %border-box;
+
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: $width;
+
+    background: $color;
+
+    padding: $padding;
+
+    &:nth-child(1) {
+      background: $intensity-1;
+    }
+
+    &:nth-child(2) {
+      background: $intensity-2;
+    }
+
+    &:nth-child(3) {
+      background: $intensity-3;
+    }
+
+    &:nth-child(4) {
+      background: darken($color, 1%);
+    }
+
+    &:nth-child(5) {
+      background: lighten($color, 1%);
+    }
+
+    &:nth-child(6) {
+      background: darken($color, 1%);
+    }
+
+
+    img {
+      width: $img-width;
+
+      margin-top: 5px;
+    }
+
+    .description {
+      @extend %border-box;
+
+      padding-left: $padding-left;
+
+      h3 {
+        text-transform: uppercase;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+
+// Анимация
+
+@mixin transition($transition-first:all .3s ease-out, $transition-second:all .3s ease-out, $transition-third:auto) {
+  transition: $transition-first, $transition-second, $transition-third;
+}
+
+@mixin placeholder() {
+  color: $black-color;
+  font-size: 14px;
+  font-weight: 300 !important;
+}
+
+@mixin form() {
+  .way {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '\21C4';
+
+      top: 0;
+      right: 15px;
+
+      color: $blue-color;
+      font-size: 30px;
+      font-family: $symbol-font;
+    }
+  }
+  input {
+    @include placeholder();
+    @include transition();
+
+    width: 100%;
+    height: 40px;
+    background: $gray-color;
+
+    border: none;
+
+    padding: 5px 15px;
+    margin-bottom: 10px;
+
+    @extend %border-box;
+
+    &[type="radio"] {
+      display: none;
+    }
+
+    &::-webkit-input-placeholder {
+      @include placeholder();
+    }
+
+    &::-ms-input-placeholder {
+      @include placeholder();
+    }
+
+    &::-moz-placeholder {
+      @include placeholder();
+    }
+
+    &::placeholder {
+      @include placeholder();
+    }
+
+    &:-ms-input-placeholder {
+      @include placeholder();
+    }
+
+    &:-moz-placeholder {
+      @include placeholder();
+    }
+
+    &:disabled {
+      pointer-events: none;
+      opacity: .3;
+    }
+
+    &:active,
+    &:focus {
+      background: lighten($gray-color, 2%);
+
+      &::-webkit-input-placeholder {
+        color: transparent;
+      }
+
+      &::-ms-input-placeholder {
+        color: transparent;
+      }
+
+      &::-moz-placeholder {
+        color: transparent;
+      }
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      &:-ms-input-placeholder {
+        color: transparent;
+      }
+
+      &:-moz-placeholder {
+        color: transparent;
+      }
+    }
+
+    &#one-way:checked + label::before,
+    &#return:checked + label::before {
+      content: "\2022";
+
+      font-family: $symbol-font;
+      color: $link-color;
+      font-size: 34px;
+      text-align: center;
+      line-height: 12px;
+
+      border: 1px solid $link-color;
+    }
+  }
+
+  label {
+    position: relative;
+    font-size: 14px;
+
+    padding-left: 25px;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      content: '';
+
+      top: 0;
+      left: 0;
+
+      width: 18px;
+      height: 18px;
+      background: $gray-color;
+
+      border: 1px solid $gray-color;
+
+      @include border-radius(10px);
+    }
+  }
+
+  button {
+    margin-top: 10px;
+
+    @media only screen and (max-width: 800px), (orientation: portrait) {
+      max-width: 100%;
+    }
+  }
+}
+
+@mixin p-ico() {
+  position: relative;
+  padding-left: 25px !important;
+
+  &::before {
+    position: absolute;
+    content: '';
+
+    left: 0;
+    top: 2px;
+
+    width: 15px;
+    height: 16px;
+
+    background-repeat: no-repeat;
+  }
+
+  &.phone {
+    &::before {
+      @include background-svg(phone);
+    }
+  }
+
+  &.time {
+    &::before {
+      @include background-svg(time);
+    }
+  }
+
+  &.email {
+    &::before {
+      @include background-svg(email);
+    }
+  }
+
+  &.web {
+    &::before {
+      @include background-svg(web);
+    }
+  }
+
+  &.fax {
+    &::before {
+      @include background-svg(fax);
+    }
+  }
+
+  &.location {
+    &::before {
+      @include background-svg(location);
+    }
+  }
+
+  &.calendar {
+    &::before {
+      @include background-svg(calendar);
+      background-size: cover;
+
+      top: 0;
+
+      width: 25px;
+      height: 22px;
+
+      @media only screen and (max-width: 980px), (orientation: portrait) {
+        width: 20px;
+        height: 18px;
+      }
+    }
+  }
+
+  &.calendar-ico {
+    &::before {
+      @include background-svg(calendar_ico);
+    }
+  }
+
+  &.time-ico {
+    &::before {
+      @include background-svg(time_ico);
+    }
+  }
+}
+
+@mixin ul-inner() {
+  li {
+    position: relative;
+    padding-left: 20px;
+
+    font-size: 14px;
+
+    margin: 15px 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: '\25B8';
+
+      top: -1px;
+      left: 0;
+
+      font-family: $symbol-font;
+    }
+
+    ul {
+      margin-top: 8px;
+
+      li {
+        padding-left: 18px;
+        margin: 4px 0;
+
+        &.active {
+          a {
+            font-weight: 600;
+          }
+
+          padding-left: 18px;
+
+          &::before {
+            content: '\2192';
+
+            top: -1px;
+          }
+        }
+
+        &::before {
+          content: '\2026';
+
+          top: -4px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin ul() {
+  li {
+    position: relative;
+
+    font-size: 14px;
+
+    padding-bottom: 12px;
+    padding-left: 15px;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: '\25B8';
+
+      top: -1px;
+      left: 0;
+
+      font-family: $symbol-font;
+      color: $gray_dark-color;
+    }
+  }
+}
+
+@mixin ul-triangle() {
+  @include ul();
+
+  li {
+    padding-left: 30px;
+
+    &::before {
+      content: '\25B6';
+
+      top: 1px;
+
+      color: $white-color;
+    }
+  }
+}
+
+@mixin button($color:$button-color) {
+  @include transition();
+  @include border-radius(30px 0 30px 0);
+
+  position: relative;
+
+  width: auto;
+  height: 50px !important;
+  background-color: $color;
+
+  font-family: $deafult-font;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 50px;
+  color: darken(rgba($color, .8), 60%);
+  text-transform: uppercase;
+
+  border: none;
+  padding: 0 40px !important;
+
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    position: absolute;
+    content: '';
+
+    background-color: darken(rgba($color, .8), 60%);
+    height: 1.4px;
+    top: 25px !important;
+    right: 28px;
+    width: 20px;
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+  }
+
+  &::after {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+  }
+
+  &:hover {
+    background: $green-color;
+    color: darken($green-color, 45%);
+
+    &::after,
+    &::before {
+      background-color: darken($green-color, 45%);
+    }
+  }
+
+  &:active,
+  &:focus {
+    background-color: darken($green-color, 5%);
+    color: darken($green-color, 35%);
+
+    &::after,
+    &::before {
+      background-color: darken($green-color, 35%);
+    }
+  }
+}
+
+@mixin button-small($color:$button-color) {
+  @include button($color);
+  @include border-radius(25px 0 25px 0);
+
+  height: 50px;
+  line-height: 50px;
+
+  font-size: 14px;
+
+  &::before,
+  &::after {
+    top: 25px;
+    right: 15px;
+
+    height: 1px;
+    width: 12px;
+  }
+}
+
+
+// Изображения
+
+@mixin background-rule($color, $repeat, $position, $size) {
+  background: {
+    color: $color;
+    repeat: $repeat;
+    position: $position;
+    size: $size;
+  }
+}
+
+@mixin background-svg-scientific($file) {
+  background-image: url(../images/scientific/svg/#{$file}.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin background-svg($file) {
+  background-image: url(../images/svg/#{$file}.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin background-png($file, $position) {
+  background-image: url(../images/#{$file}.png);
+  background-position: $position;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin background-jpg($file, $position) {
+  background-image: url(../images/#{$file}.jpg);
+  background-position: $position;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@mixin overlay($width:100%, $m-height:100%) {
+  &::after {
+    position: absolute;
+    content: '';
+
+    top: 0;
+    left: 0;
+
+    min-width: $width;
+    width: 100%;
+    min-height: $m-height;
+    height: 100%;
+    z-index: 1;
+
+    background: rgba($black-color, .6);
+  }
+}
+
+@mixin grayscale($gray:grayscale(1)) {
+  -webkit-filter: $gray;
+     -moz-filter: $gray;
+      -ms-filter: $gray;
+       -o-filter: $gray;
+          filter: $gray;
+}
+
+@mixin image($image, $m-height, $width:100%, $m-width:auto, $height:auto) {
+  @include background-png($image, center);
+  @extend %border-box;
+
+  position: relative;
+
+  min-width: $width;
+  max-width: $m-width;
+  min-height: $m-height;
+      height: $height;
+
+  color: $white-color;
+
+  margin: 0 auto;
+}
+
+@mixin background-overlay-image($image, $height, $padding-800:50px 0 60px) {
+  @include image($image, $height);
+  @include overlay();
+
+  @media only screen and (max-width: 1200px), (orientation: portrait) {
+    min-height: auto;
+
+    padding: 60px 0;
+  }
+
+  @media only screen and (max-width: 800px), (orientation: portrait) {
+    padding: $padding-800;
+  }
+}
+
+
+// Анимация
+
+@mixin animation($nameAnimation) {
+  -webkit-animation: $nameAnimation 1s ease-in-out infinite;
+     -moz-animation: $nameAnimation 1s ease-in-out infinite;
+      -ms-animation: $nameAnimation 1s ease-in-out infinite;
+       -o-animation: $nameAnimation 1s ease-in-out infinite;
+          animation: $nameAnimation 1s ease-in-out infinite;
+}
+
+@keyframes phone {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    transform: scale3d(0.75, 0.75, 1);
+  }
+
+  60% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@-webkit-keyframes phone {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(0.75, 0.75, 1);
+  }
+
+  60% {
+    -webkit-transform: scale3d(1, 1, 1);
+  }
+}
+
+
+@keyframes arrow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 10px);
+  }
+}
+
+@-webkit-keyframes arrow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(10px, 10px);
+  }
+}
+
+
+@keyframes top {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, -10px);
+  }
+}
